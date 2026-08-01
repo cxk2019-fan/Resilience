@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
@@ -2413,41 +2413,73 @@
       <form id="settingsForm">
         <div class="modal-body">
           <div class="modal-section">
-            <div class="modal-section-title">Profile & goals</div>
+            <div class="modal-section-title">目标设置</div>
             <div class="form-grid">
-              <div class="field"><label for="userNameInput">For</label><input id="userNameInput" value="罗思维" /></div>
-              <div class="field"><label for="authorNameInput">Gift provider</label><input id="authorNameInput" value="董纪君" /></div>
-              <div class="field"><label for="settingsExamDate">IELTS exam date</label><input id="settingsExamDate" type="date" /></div>
-              <div class="field"><label for="settingsTargetWeight">Target weight (kg)</label><input id="settingsTargetWeight" type="number" min="20" max="300" step="0.1" /></div>
+              <div class="field">
+                <label for="settingsExamDate">雅思考试日期</label>
+                <input id="settingsExamDate" type="date" />
+              </div>
+              <div class="field">
+                <label for="settingsTargetWeight">目标体重（kg）</label>
+                <input id="settingsTargetWeight" type="number" min="20" max="300" step="0.1" />
+              </div>
             </div>
           </div>
 
           <div class="modal-section">
-            <div class="modal-section-title">Home screen</div>
+            <div class="modal-section-title">首页显示</div>
             <div class="form-grid">
-              <div class="field"><label for="cardOrderInput">Card order</label><select id="cardOrderInput"><option value="ielts,weight,sleep">IELTS · Weight · Sleep</option><option value="sleep,ielts,weight">Sleep · IELTS · Weight</option><option value="weight,sleep,ielts">Weight · Sleep · IELTS</option></select></div>
-              <div class="field"><label for="colorStyleInput">Accent style</label><select id="colorStyleInput"><option value="color">Color</option><option value="mono">Monochrome</option></select></div>
-              <div class="field"><label for="showRewardInput">Milestone summary</label><select id="showRewardInput"><option value="show">Show on home</option><option value="hide">Hide from home</option></select></div>
-              <div class="field"><label for="showHistoryInput">Milestone history</label><select id="showHistoryInput"><option value="show">Show below cards</option><option value="hide">Hide from home</option></select></div>
+              <div class="field">
+                <label for="cardOrderInput">卡片排列顺序</label>
+                <select id="cardOrderInput">
+                  <option value="ielts,weight,sleep">雅思 · 体重 · 早睡</option>
+                  <option value="sleep,ielts,weight">早睡 · 雅思 · 体重</option>
+                  <option value="weight,sleep,ielts">体重 · 早睡 · 雅思</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="colorStyleInput">界面强调色</label>
+                <select id="colorStyleInput">
+                  <option value="color">彩色</option>
+                  <option value="mono">黑白</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="showRewardInput">积分概览</label>
+                <select id="showRewardInput">
+                  <option value="show">在首页显示</option>
+                  <option value="hide">不在首页显示</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="showHistoryInput">里程记录</label>
+                <select id="showHistoryInput">
+                  <option value="show">在卡片下方显示</option>
+                  <option value="hide">不在首页显示</option>
+                </select>
+              </div>
             </div>
           </div>
 
           <div class="modal-section">
-            <div class="modal-section-title">Sleep check-in window</div>
-            <div class="form-grid">
-              <div class="field"><label for="sleepStartInput">Opens at</label><input id="sleepStartInput" type="time" value="20:00" /></div>
-              <div class="field"><label for="sleepDeadlineInput">Closes at</label><input id="sleepDeadlineInput" type="time" value="01:00" /></div>
+            <div class="modal-section-title">固定规则</div>
+            <div class="transfer-note">
+              本网站专属使用者固定为罗思维，神秘礼品提供者固定为董纪君。早睡打卡时间固定为每天20:00至次日00:59，凌晨1:00后不再允许补签。
             </div>
-            <div class="transfer-note">跨过午夜的时间段会自动归入前一晚。例如20:00至01:00，凌晨00:30仍计入前一晚。</div>
           </div>
 
           <div class="modal-section">
-            <div class="modal-section-title">Data transfer</div>
-            <div class="transfer-note">在旧设备导出JSON文件并通过微信、文件或网盘发送；在新设备打开本站后导入，即可恢复全部记录、积分与兑换卡。</div>
+            <div class="modal-section-title">数据迁移</div>
+            <div class="transfer-note">
+              在旧设备导出JSON备份，并通过微信、文件或网盘发送；在新设备打开本网站后导入，即可恢复单词、体重、早睡、积分和礼品兑换记录。
+            </div>
             <div class="data-actions transfer-actions">
-              <button class="button primary" id="exportData" type="button">Export / Share</button>
-              <button class="button secondary" id="importData" type="button">Import backup</button>
-              <button class="button danger" id="clearData" type="button">Clear all data</button>
+              <button class="button primary" id="exportData" type="button">导出 / 分享数据</button>
+              <button class="button secondary" id="importData" type="button">导入备份</button>
+              <button class="button danger" id="clearData" type="button">清空全部数据</button>
               <input class="sr-only" id="importFile" type="file" accept="application/json,.json" />
             </div>
           </div>
@@ -2517,7 +2549,14 @@
           const parsed = JSON.parse(raw);
           return {
             version: APP_VERSION,
-            settings: { ...cloneDefault().settings, ...(parsed.settings || {}) },
+            settings: {
+              ...cloneDefault().settings,
+              ...(parsed.settings || {}),
+              userName: "罗思维",
+              authorName: "董纪君",
+              sleepStart: "20:00",
+              sleepDeadline: "01:00"
+            },
             daily: parsed.daily || {},
             sleepCheckins: parsed.sleepCheckins || {},
             milestones: Array.isArray(parsed.milestones) ? parsed.milestones : [],
@@ -3460,12 +3499,8 @@
       }
 
       function prefillSettings() {
-        $("userNameInput").value = state.settings.userName || "罗思维";
-        $("authorNameInput").value = state.settings.authorName || "董纪君";
         $("settingsExamDate").value = state.settings.examDate || "";
         $("settingsTargetWeight").value = safeNumber(state.settings.targetWeight, 55);
-        $("sleepStartInput").value = state.settings.sleepStart || "20:00";
-        $("sleepDeadlineInput").value = state.settings.sleepDeadline || "01:00";
         $("cardOrderInput").value = state.settings.cardOrder || "ielts,weight,sleep";
         $("colorStyleInput").value = state.settings.colorStyle || "color";
         $("showRewardInput").value = state.settings.showRewardSummary === false ? "hide" : "show";
@@ -3539,7 +3574,7 @@
         const windowInfo = getNightWindow();
 
         if (!windowInfo.canCheckIn) {
-          showToast("当前不在20:00至00:59的打卡时间内");
+          showToast("早睡打卡时间为每天20:00至次日00:59");
           return;
         }
 
@@ -3570,12 +3605,12 @@
       function submitSettings(event) {
         event.preventDefault();
 
-        state.settings.userName = $("userNameInput").value.trim() || "罗思维";
-        state.settings.authorName = $("authorNameInput").value.trim() || "董纪君";
+        state.settings.userName = "罗思维";
+        state.settings.authorName = "董纪君";
+        state.settings.sleepStart = "20:00";
+        state.settings.sleepDeadline = "01:00";
         state.settings.examDate = $("settingsExamDate").value;
         state.settings.targetWeight = safeNumber($("settingsTargetWeight").value, 55);
-        state.settings.sleepStart = $("sleepStartInput").value || "20:00";
-        state.settings.sleepDeadline = $("sleepDeadlineInput").value || "01:00";
         state.settings.cardOrder = $("cardOrderInput").value || "ielts,weight,sleep";
         state.settings.colorStyle = $("colorStyleInput").value || "color";
         state.settings.showRewardSummary = $("showRewardInput").value !== "hide";
@@ -3584,7 +3619,7 @@
         saveState();
         closeModal($("settingsModal"));
         renderAll();
-        showToast("Settings saved");
+        showToast("设置已保存");
       }
 
       function toggleGiftStatus(id) {
@@ -3668,7 +3703,14 @@
 
             state = {
               version: APP_VERSION,
-              settings: { ...cloneDefault().settings, ...(imported.settings || {}) },
+              settings: {
+                ...cloneDefault().settings,
+                ...(imported.settings || {}),
+                userName: "罗思维",
+                authorName: "董纪君",
+                sleepStart: "20:00",
+                sleepDeadline: "01:00"
+              },
               daily: imported.daily || {},
               sleepCheckins: imported.sleepCheckins || {},
               milestones: Array.isArray(imported.milestones) ? imported.milestones : [],
