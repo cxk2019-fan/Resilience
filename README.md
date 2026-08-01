@@ -1186,6 +1186,528 @@
       .celebration-actions .button { flex: 1; }
       .footer-inner { flex-direction: column; }
     }
+  
+    /* -------------------------------------------------------------
+       Mobile-first refinement · Chinese reading hierarchy
+       ------------------------------------------------------------- */
+    .hero {
+      display: block;
+      margin-bottom: 30px;
+    }
+
+    .hero-meta-line {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 16px;
+    }
+
+    .hero-meta-line .eyebrow {
+      margin: 0;
+      color: var(--text);
+      font-size: 15px;
+      font-weight: 680;
+      letter-spacing: 0;
+      text-transform: none;
+    }
+
+    .hero h1 span {
+      color: var(--secondary);
+    }
+
+    .hero-date {
+      padding: 0;
+      text-align: right;
+      font-size: 12px;
+    }
+
+    .reward-title {
+      display: flex;
+      align-items: baseline;
+      gap: 9px;
+      font-size: 17px;
+      font-weight: 720;
+    }
+
+    .reward-title small {
+      color: var(--secondary);
+      font-size: 9px;
+      font-weight: 760;
+      letter-spacing: .12em;
+    }
+
+    .card-heading {
+      min-width: 0;
+      display: flex;
+      align-items: center;
+      gap: 13px;
+    }
+
+    .card-icon {
+      width: 46px;
+      height: 46px;
+      flex: 0 0 auto;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+    }
+
+    .card-icon svg {
+      width: 23px;
+      height: 23px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.7;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .ielts-icon {
+      color: var(--blue);
+      background: rgba(0, 113, 227, .10);
+    }
+
+    .weight-icon {
+      color: var(--green);
+      background: rgba(36, 161, 72, .10);
+    }
+
+    .sleep-icon {
+      color: var(--purple);
+      background: rgba(103, 87, 217, .10);
+    }
+
+    .card-title-cn {
+      color: var(--text);
+      font-size: 18px;
+      line-height: 1.25;
+      font-weight: 720;
+      letter-spacing: -.02em;
+    }
+
+    .card-heading .card-label {
+      margin-top: 4px;
+      font-size: 9px;
+      letter-spacing: .13em;
+    }
+
+    .transfer-note {
+      margin-bottom: 16px;
+      padding: 15px 16px;
+      color: var(--secondary);
+      background: #f7f7f9;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      font-size: 13px;
+      line-height: 1.65;
+    }
+
+    .quick-data-button {
+      color: var(--blue);
+    }
+
+    @media (max-width: 940px) {
+      .cards-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 720px) {
+      :root {
+        --radius-xl: 27px;
+      }
+
+      body {
+        background:
+          radial-gradient(circle at 0% -4%, rgba(0, 113, 227, .055), transparent 24%),
+          radial-gradient(circle at 100% 5%, rgba(103, 87, 217, .045), transparent 22%),
+          #f5f5f7;
+      }
+
+      .container {
+        width: 100%;
+        max-width: var(--page);
+        padding-left: max(14px, env(safe-area-inset-left));
+        padding-right: max(14px, env(safe-area-inset-right));
+      }
+
+      .topbar {
+        background: rgba(245, 245, 247, .84);
+      }
+
+      .topbar-inner {
+        height: 58px;
+        padding-top: env(safe-area-inset-top);
+      }
+
+      .brand {
+        gap: 9px;
+        font-size: 12px;
+        letter-spacing: .12em;
+      }
+
+      .brand-mark {
+        width: 22px;
+        height: 22px;
+        border-radius: 7px;
+      }
+
+      .top-actions {
+        gap: 7px;
+      }
+
+      .icon-button,
+      .milestone-pill {
+        min-width: 36px;
+        width: 36px;
+        height: 36px;
+        min-height: 36px;
+        padding: 0;
+        justify-content: center;
+      }
+
+      .milestone-pill span {
+        display: none;
+      }
+
+      .milestone-pill strong {
+        width: 24px;
+        min-width: 24px;
+        height: 24px;
+        padding: 0;
+      }
+
+      main {
+        padding: 24px 0 max(56px, env(safe-area-inset-bottom));
+      }
+
+      .hero {
+        margin-bottom: 22px;
+      }
+
+      .hero-meta-line {
+        margin-bottom: 13px;
+      }
+
+      .hero h1 {
+        font-size: clamp(38px, 11vw, 48px);
+        line-height: 1.07;
+        letter-spacing: -.055em;
+      }
+
+      .hero-copy {
+        max-width: 100%;
+        margin-top: 16px;
+        font-size: 15px;
+        line-height: 1.72;
+        letter-spacing: 0;
+      }
+
+      .hero-date {
+        white-space: nowrap;
+        font-size: 11px;
+      }
+
+      .reward-summary {
+        margin-bottom: 14px;
+        padding: 20px;
+        gap: 18px;
+        border-radius: 24px;
+      }
+
+      .reward-note {
+        margin-top: 7px;
+        font-size: 12px;
+        line-height: 1.6;
+      }
+
+      .reward-metrics {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0;
+        border-top: 1px solid var(--line);
+        padding-top: 17px;
+      }
+
+      .reward-metric {
+        min-width: 0;
+        padding: 0 12px;
+        text-align: left;
+      }
+
+      .reward-metric:first-child { padding-left: 0; }
+      .reward-metric:last-of-type { padding-right: 0; }
+
+      .reward-metric + .reward-metric {
+        border-left: 1px solid var(--line);
+      }
+
+      .reward-metric strong {
+        font-size: 27px;
+      }
+
+      .reward-metric span {
+        margin-top: 5px;
+        font-size: 10px;
+        white-space: normal;
+        line-height: 1.3;
+      }
+
+      .reward-button {
+        grid-column: 1 / -1;
+        width: 100%;
+        margin-top: 16px;
+      }
+
+      .cards-grid {
+        width: 100%;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 14px;
+        margin-bottom: 48px;
+      }
+
+      .habit-card {
+        width: 100%;
+        min-width: 0;
+        min-height: 0;
+        padding: 21px;
+        border-radius: 27px;
+        box-shadow: 0 12px 36px rgba(0, 0, 0, .045);
+      }
+
+      .habit-card:hover {
+        transform: none;
+      }
+
+      .habit-card::after {
+        right: -54px;
+        bottom: -70px;
+        width: 155px;
+        height: 155px;
+        opacity: .065;
+      }
+
+      .card-head {
+        align-items: center;
+      }
+
+      .card-arrow {
+        width: 36px;
+        height: 36px;
+        flex: 0 0 auto;
+        font-size: 17px;
+      }
+
+      .primary-value {
+        margin-top: 25px;
+        font-size: clamp(48px, 14vw, 62px);
+        line-height: .96;
+      }
+
+      .primary-value small {
+        margin-top: 10px;
+        font-size: 13px;
+        line-height: 1.45;
+      }
+
+      .secondary-data {
+        margin-top: 21px;
+        padding-top: 17px;
+      }
+
+      .secondary-row {
+        font-size: 14px;
+        line-height: 1.45;
+      }
+
+      .secondary-row + .secondary-row {
+        margin-top: 11px;
+      }
+
+      .progress-area {
+        margin-top: 0;
+        padding-top: 23px;
+      }
+
+      .progress-top {
+        margin-bottom: 9px;
+        font-size: 12px;
+      }
+
+      .progress-track {
+        height: 7px;
+      }
+
+      .progress-note {
+        margin-top: 9px;
+        font-size: 12px;
+        line-height: 1.5;
+      }
+
+      .mini-chart {
+        height: 40px;
+        margin-top: 13px;
+      }
+
+      .section {
+        margin-bottom: 45px;
+      }
+
+      .section-head {
+        margin-bottom: 16px;
+        gap: 10px;
+      }
+
+      .section-head h2 {
+        font-size: 34px;
+      }
+
+      .section-head p {
+        font-size: 13px;
+        line-height: 1.65;
+      }
+
+      .overview-panel {
+        padding: 20px;
+        border-radius: 25px;
+      }
+
+      .ledger-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .ledger-stat {
+        min-width: 0;
+        padding: 4px 12px 20px;
+      }
+
+      .ledger-stat:first-child { padding-left: 0; }
+      .ledger-stat:last-child { padding-right: 0; }
+
+      .ledger-stat + .ledger-stat {
+        border-top: 0;
+        border-left: 1px solid var(--line);
+      }
+
+      .ledger-stat strong {
+        font-size: 29px;
+      }
+
+      .recent-item {
+        grid-template-columns: 38px minmax(0, 1fr);
+        gap: 11px;
+      }
+
+      .recent-date {
+        grid-column: 2;
+        text-align: left;
+      }
+
+      .modal-layer {
+        align-items: flex-end;
+        padding: 0;
+      }
+
+      .modal {
+        width: 100%;
+        max-height: 92dvh;
+        border-radius: 28px 28px 0 0;
+        animation-name: mobileSheetIn;
+      }
+
+      @keyframes mobileSheetIn {
+        from { opacity: 0; transform: translateY(36px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      .modal-head {
+        min-height: 64px;
+        padding: 15px 18px;
+      }
+
+      .modal-title {
+        font-size: 19px;
+      }
+
+      .modal-body {
+        padding: 20px 18px;
+      }
+
+      .modal-actions {
+        padding: 14px 18px max(18px, env(safe-area-inset-bottom));
+      }
+
+      .field input,
+      .field select,
+      .field textarea {
+        font-size: 16px;
+      }
+
+      .choice label {
+        min-height: 56px;
+      }
+
+      .summary-box {
+        padding: 17px;
+        gap: 16px;
+      }
+
+      .transfer-actions {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .transfer-actions .danger {
+        grid-column: 1 / -1;
+      }
+
+      .toast {
+        bottom: max(22px, calc(env(safe-area-inset-bottom) + 12px));
+        max-width: calc(100% - 32px);
+        text-align: center;
+      }
+
+      footer {
+        padding-bottom: max(30px, env(safe-area-inset-bottom));
+      }
+    }
+
+    @media (max-width: 390px) {
+      .container {
+        padding-left: max(12px, env(safe-area-inset-left));
+        padding-right: max(12px, env(safe-area-inset-right));
+      }
+
+      .hero h1 {
+        font-size: 39px;
+      }
+
+      .reward-summary,
+      .habit-card {
+        border-radius: 24px;
+      }
+
+      .habit-card {
+        padding: 19px;
+      }
+
+      .card-icon {
+        width: 43px;
+        height: 43px;
+      }
+
+      .card-title-cn {
+        font-size: 17px;
+      }
+
+      .primary-value {
+        font-size: 50px;
+      }
+    }
+
   </style>
 </head>
 
@@ -1199,6 +1721,14 @@
         </div>
 
         <div class="top-actions">
+          <button class="icon-button quick-data-button" id="quickExport" type="button" aria-label="导出或分享数据" title="导出数据">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 3v11"></path>
+              <path d="m8 10 4 4 4-4"></path>
+              <path d="M5 15v4h14v-4"></path>
+            </svg>
+          </button>
+
           <button class="milestone-pill" id="openLedger" type="button">
             <span>里程积分</span>
             <strong id="topBalance">0</strong>
@@ -1214,17 +1744,17 @@
     <main>
       <div class="container">
         <section class="hero">
-          <div>
-            <div class="eyebrow" id="greeting">For 罗思维</div>
-            <h1>Three things.<br>One direction.</h1>
-            <p class="hero-copy">记住更多单词，做出更好的饮食选择，并在凌晨一点前结束一天。每一个阶段，都有明确的回报。</p>
+          <div class="hero-meta-line">
+            <div class="eyebrow" id="greeting">罗思维，早上好</div>
+            <div class="hero-date" id="heroDate"></div>
           </div>
-          <div class="hero-date" id="heroDate"></div>
+          <h1>今天，继续<br><span>向前一点。</span></h1>
+          <p class="hero-copy">记住更多单词，保持更好的饮食选择，在凌晨一点前结束一天。小进步会被认真记录，也会得到回报。</p>
         </section>
 
         <section class="reward-summary" aria-label="积分与礼品概览">
           <div>
-            <div class="reward-title">Milestones</div>
+            <div class="reward-title">里程与礼品 <small>MILESTONES</small></div>
             <div class="reward-note" id="rewardSummaryText">每两个里程积分，可以向董纪君兑换一份神秘礼品。</div>
           </div>
           <div class="reward-metrics">
@@ -1247,7 +1777,15 @@
         <section class="cards-grid" aria-label="三个目标">
           <article class="habit-card ielts" data-open="ieltsModal" tabindex="0" role="button" aria-label="打开 IELTS 记录">
             <div class="card-head">
-              <div class="card-label">01 · IELTS</div>
+              <div class="card-heading">
+                <div class="card-icon ielts-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M5 4.8A2.8 2.8 0 0 1 7.8 2H20v17H7.8A2.8 2.8 0 0 0 5 21.8Z"></path><path d="M5 4.8v17"></path><path d="M9 7h7"></path><path d="M9 11h6"></path></svg>
+                </div>
+                <div>
+                  <div class="card-title-cn">雅思学习</div>
+                  <div class="card-label">01 · IELTS</div>
+                </div>
+              </div>
               <div class="card-arrow">→</div>
             </div>
 
@@ -1280,7 +1818,15 @@
 
           <article class="habit-card weight" data-open="weightModal" tabindex="0" role="button" aria-label="打开体重记录">
             <div class="card-head">
-              <div class="card-label">02 · WEIGHT</div>
+              <div class="card-heading">
+                <div class="card-icon weight-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="4"></rect><path d="M8 10a4 4 0 0 1 8 0"></path><path d="m12 10 2-2"></path></svg>
+                </div>
+                <div>
+                  <div class="card-title-cn">体重管理</div>
+                  <div class="card-label">02 · WEIGHT</div>
+                </div>
+              </div>
               <div class="card-arrow">→</div>
             </div>
 
@@ -1314,7 +1860,15 @@
 
           <article class="habit-card sleep" data-open="sleepModal" tabindex="0" role="button" aria-label="打开早睡打卡">
             <div class="card-head">
-              <div class="card-label">03 · SLEEP</div>
+              <div class="card-heading">
+                <div class="card-icon sleep-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M20 15.2A8.5 8.5 0 0 1 8.8 4 8.5 8.5 0 1 0 20 15.2Z"></path><path d="M16.8 4.2v3.2"></path><path d="M15.2 5.8h3.2"></path></svg>
+                </div>
+                <div>
+                  <div class="card-title-cn">早睡打卡</div>
+                  <div class="card-label">03 · SLEEP</div>
+                </div>
+              </div>
               <div class="card-arrow">→</div>
             </div>
 
@@ -1348,8 +1902,8 @@
 
         <section class="section" id="ledgerSection">
           <div class="section-head">
-            <h2>Milestones</h2>
-            <p>里程积分一旦获得不会因后续修改或断签被收回。兑换记录也会一直保留在当前浏览器中。</p>
+            <h2>里程记录</h2>
+            <p>每一次阶段完成都会形成记录。已获得的积分不会因后续修改或断签被收回。</p>
           </div>
 
           <div class="overview-panel">
@@ -1663,12 +2217,15 @@
           </div>
 
           <div class="modal-section">
-            <div class="modal-section-title">数据管理</div>
-            <div class="data-actions">
-              <button class="button secondary" id="exportData" type="button">导出备份</button>
+            <div class="modal-section-title">数据迁移</div>
+            <div class="transfer-note">
+              在旧设备点击“导出 / 分享”，把JSON备份发送到微信、文件或网盘；在新设备打开本网站后点击“导入备份”，即可恢复单词、体重、早睡、积分和礼品卡。
+            </div>
+            <div class="data-actions transfer-actions">
+              <button class="button primary" id="exportData" type="button">导出 / 分享数据</button>
               <button class="button secondary" id="importData" type="button">导入备份</button>
               <button class="button danger" id="clearData" type="button">清空全部数据</button>
-              <input class="sr-only" id="importFile" type="file" accept="application/json" />
+              <input class="sr-only" id="importFile" type="file" accept="application/json,.json" />
             </div>
           </div>
         </div>
@@ -2309,7 +2866,9 @@
         const balance = milestoneBalance();
         const gifts = availableGiftCount();
 
-        $("greeting").textContent = `For ${user}`;
+                const hour = new Date().getHours();
+        const greetingText = hour < 11 ? "早上好" : hour < 18 ? "下午好" : "晚上好";
+        $("greeting").textContent = `${user}，${greetingText}`;
         $("heroDate").textContent = formatDate(new Date(), { weekday: "long" });
 
         $("topBalance").textContent = balance;
@@ -2810,7 +3369,7 @@
         renderLedger();
       }
 
-      function exportData() {
+      async function exportData() {
         const payload = {
           app: "Three",
           version: APP_VERSION,
@@ -2818,17 +3377,40 @@
           data: state
         };
 
-        const blob = new Blob([JSON.stringify(payload, null, 2)], {
-          type: "application/json"
-        });
+        const filename = `three-${state.settings.userName || "data"}-${todayKey()}.json`;
+        const content = JSON.stringify(payload, null, 2);
+        const blob = new Blob([content], { type: "application/json" });
+
+        try {
+          const file = new File([blob], filename, { type: "application/json" });
+
+          if (
+            navigator.share &&
+            navigator.canShare &&
+            navigator.canShare({ files: [file] })
+          ) {
+            await navigator.share({
+              title: "Three 数据备份",
+              text: `${state.settings.userName || "罗思维"}的Three打卡数据`,
+              files: [file]
+            });
+            showToast("数据已打开分享面板");
+            return;
+          }
+        } catch (error) {
+          if (error && error.name === "AbortError") return;
+          console.warn("Native share unavailable:", error);
+        }
 
         const url = URL.createObjectURL(blob);
         const link = document.createElement("a");
         link.href = url;
-        link.download = `three-${state.settings.userName || "data"}-${todayKey()}.json`;
+        link.download = filename;
+        document.body.appendChild(link);
         link.click();
-        URL.revokeObjectURL(url);
-        showToast("备份已导出");
+        link.remove();
+        window.setTimeout(() => URL.revokeObjectURL(url), 1000);
+        showToast("JSON备份已导出");
       }
 
       function importData(file) {
@@ -3079,6 +3661,7 @@
         $("settingsForm").addEventListener("submit", submitSettings);
         $("sleepCheckinButton").addEventListener("click", performSleepCheckin);
 
+        $("quickExport").addEventListener("click", exportData);
         $("exportData").addEventListener("click", exportData);
         $("importData").addEventListener("click", () => $("importFile").click());
         $("importFile").addEventListener("change", event => importData(event.target.files[0]));
