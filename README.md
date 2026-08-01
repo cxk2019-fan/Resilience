@@ -1708,6 +1708,272 @@
       }
     }
 
+  
+    /* -------------------------------------------------------------
+       Compact mobile cards v2
+       The mobile interface is not a scaled desktop dashboard.
+       ------------------------------------------------------------- */
+    .compact-main {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(118px, .72fr);
+      gap: 20px;
+      align-items: end;
+      margin-top: 24px;
+    }
+
+    .compact-facts {
+      min-width: 0;
+      display: grid;
+      gap: 13px;
+      padding-left: 18px;
+      border-left: 1px solid var(--line);
+    }
+
+    .compact-fact {
+      min-width: 0;
+    }
+
+    .compact-fact span {
+      display: block;
+      color: var(--secondary);
+      font-size: 11px;
+      line-height: 1.3;
+    }
+
+    .compact-fact strong {
+      display: block;
+      margin-top: 5px;
+      color: var(--text);
+      font-size: 15px;
+      line-height: 1.25;
+      font-weight: 680;
+      text-align: left;
+      overflow-wrap: anywhere;
+    }
+
+    @media (max-width: 720px) {
+      .hero-copy {
+        display: none;
+      }
+
+      .hero {
+        margin-bottom: 18px;
+      }
+
+      .hero h1 {
+        font-size: 31px;
+        line-height: 1.16;
+        letter-spacing: -.045em;
+      }
+
+      .hero h1 br {
+        display: none;
+      }
+
+      .hero h1 span {
+        margin-left: .15em;
+      }
+
+      .reward-summary {
+        padding: 17px 18px;
+      }
+
+      .reward-note {
+        display: none;
+      }
+
+      .reward-metrics {
+        margin-top: 0;
+      }
+
+      .cards-grid {
+        gap: 12px;
+      }
+
+      .habit-card {
+        min-height: 0;
+        padding: 18px;
+        border-radius: 24px;
+      }
+
+      .habit-card::after {
+        display: none;
+      }
+
+      .card-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 12px;
+      }
+
+      .card-icon svg {
+        width: 21px;
+        height: 21px;
+      }
+
+      .card-title-cn {
+        font-size: 17px;
+      }
+
+      .card-heading .card-label {
+        margin-top: 2px;
+        font-size: 8px;
+      }
+
+      .card-arrow {
+        width: 32px;
+        height: 32px;
+        font-size: 25px;
+        font-weight: 300;
+      }
+
+      .compact-main {
+        grid-template-columns: minmax(0, 1fr) 118px;
+        gap: 15px;
+        margin-top: 19px;
+      }
+
+      .compact-facts {
+        gap: 11px;
+        padding-left: 14px;
+      }
+
+      .compact-fact strong {
+        font-size: 14px;
+      }
+
+      .primary-value {
+        min-width: 0;
+        margin: 0;
+        font-size: 36px;
+        line-height: 1;
+        letter-spacing: -.05em;
+        white-space: normal;
+        overflow-wrap: anywhere;
+      }
+
+      .primary-value small {
+        margin-top: 7px;
+        font-size: 11px;
+        line-height: 1.45;
+        letter-spacing: 0;
+      }
+
+      .mini-chart {
+        height: 26px;
+        margin: 13px 0 -2px;
+      }
+
+      .progress-area {
+        padding-top: 18px;
+      }
+
+      .progress-top {
+        margin-bottom: 8px;
+      }
+
+      .progress-note {
+        margin-top: 8px;
+        font-size: 11px;
+      }
+
+      .section {
+        margin-top: 48px;
+      }
+    }
+
+    @media (max-width: 374px) {
+      .compact-main {
+        grid-template-columns: minmax(0, 1fr) 105px;
+        gap: 11px;
+      }
+
+      .compact-facts {
+        padding-left: 11px;
+      }
+
+      .primary-value {
+        font-size: 32px;
+      }
+    }
+
+  
+    /* =============================================================
+       Final mobile-first layout
+       ============================================================= */
+    .card-title-en { color: var(--text); font-size: 18px; line-height: 1.15; font-weight: 760; letter-spacing: .035em; }
+    .monochrome .ielts-icon, .monochrome .weight-icon, .monochrome .sleep-icon { color: var(--text); background: rgba(0,0,0,.065); }
+    .monochrome .brand-mark { background: var(--text); }
+    .monochrome .progress-fill, .monochrome .ielts .progress-fill, .monochrome .weight .progress-fill, .monochrome .sleep .progress-fill { background: var(--text); }
+
+    @media (max-width: 720px) {
+      body { min-height: 100dvh; padding-bottom: calc(74px + env(safe-area-inset-bottom)); }
+      .topbar { position: fixed; top: auto; left: max(12px, env(safe-area-inset-left)); right: max(12px, env(safe-area-inset-right)); bottom: max(10px, env(safe-area-inset-bottom)); z-index: 80; border: 1px solid rgba(255,255,255,.82); border-radius: 22px; background: rgba(255,255,255,.84); box-shadow: 0 12px 42px rgba(0,0,0,.12); backdrop-filter: blur(28px) saturate(180%); -webkit-backdrop-filter: blur(28px) saturate(180%); }
+      .topbar.scrolled { border-bottom-color: rgba(255,255,255,.82); box-shadow: 0 12px 42px rgba(0,0,0,.12); }
+      .topbar-inner { height: 54px; padding: 0 10px 0 14px; }
+      .brand { gap: 8px; font-size: 11px; }
+      .brand-mark { width: 20px; height: 20px; }
+      .top-actions { gap: 6px; }
+      .icon-button, .milestone-pill { width: 34px; min-width: 34px; height: 34px; min-height: 34px; background: rgba(245,245,247,.88); }
+      main { min-height: 100dvh; padding: 18px 0 16px; }
+      .hero { margin-bottom: 12px; }
+      .hero-meta-line { margin-bottom: 8px; }
+      .hero-meta-line .eyebrow { color: var(--secondary); font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+      .hero-date { color: var(--secondary); font-size: 10px; }
+      .hero h1 { font-size: 31px; line-height: 1.02; letter-spacing: -.055em; }
+      .hero h1 br { display: none; }
+      .hero h1 span { margin-left: .14em; }
+      .hero-copy { display: block; margin-top: 8px; color: var(--secondary); font-size: 11px; line-height: 1.35; }
+      .reward-summary { min-height: 48px; margin-bottom: 10px; padding: 11px 14px; display: flex; align-items: center; justify-content: space-between; border-radius: 18px; }
+      .reward-title { font-size: 13px; }
+      .reward-note { display: none; }
+      .reward-metrics { width: auto; display: flex; gap: 0; padding: 0; border: 0; }
+      .reward-metric { min-width: 48px; padding: 0 9px; text-align: center; }
+      .reward-metric + .reward-metric { border-left: 1px solid var(--line); }
+      .reward-metric strong { font-size: 18px; }
+      .reward-metric span { display: none; }
+      .reward-button { width: auto; min-height: 32px; margin: 0 0 0 8px; padding: 0 12px; font-size: 11px; }
+      .cards-grid { height: min(490px, calc(100dvh - 228px)); min-height: 432px; max-height: 500px; display: grid; grid-template-columns: minmax(0,1fr); grid-template-rows: repeat(3,minmax(0,1fr)); gap: 9px; margin-bottom: 22px; }
+      .habit-card { min-height: 0; height: 100%; padding: 13px 15px 12px; border-radius: 21px; overflow: hidden; }
+      .habit-card::after { display: none; }
+      .card-head { min-height: 31px; }
+      .card-heading { gap: 9px; }
+      .card-icon { width: 31px; height: 31px; border-radius: 9px; }
+      .card-icon svg { width: 17px; height: 17px; }
+      .card-title-en { font-size: 14px; }
+      .card-heading .card-label { margin-top: 1px; font-size: 7px; }
+      .card-arrow { width: 27px; height: 27px; font-size: 22px; background: rgba(0,0,0,.035); }
+      .compact-main { grid-template-columns: minmax(0,1fr) 112px; gap: 12px; align-items: center; margin-top: 8px; }
+      .primary-value { margin: 0; font-size: 28px; line-height: .96; white-space: normal; }
+      .primary-value small { margin-top: 5px; font-size: 9px; line-height: 1.2; }
+      .compact-facts { gap: 7px; padding-left: 11px; }
+      .compact-fact span { font-size: 8px; }
+      .compact-fact strong { margin-top: 2px; font-size: 11px; }
+      .mini-chart { display: none; }
+      .progress-area { margin-top: auto; padding-top: 8px; }
+      .progress-top { margin-bottom: 5px; font-size: 8px; }
+      .progress-track { height: 5px; }
+      .progress-note { margin-top: 5px; font-size: 8px; line-height: 1.2; }
+      .section { margin-top: 24px; margin-bottom: 20px; }
+      .section-head { margin-bottom: 12px; }
+      .section-head h2 { font-size: 28px; }
+      .section-head p { font-size: 11px; line-height: 1.5; }
+      .overview-panel { padding: 17px; border-radius: 22px; }
+      footer { padding-bottom: 14px; }
+    }
+
+    @media (max-width: 390px) {
+      .cards-grid { height: min(470px, calc(100dvh - 220px)); min-height: 420px; }
+      .habit-card { padding: 12px 14px 11px; }
+      .compact-main { grid-template-columns: minmax(0,1fr) 104px; }
+      .primary-value { font-size: 26px; }
+    }
+
+    @media (max-height: 700px) and (max-width: 720px) {
+      .hero-copy, .reward-summary { display: none; }
+      .cards-grid { height: calc(100dvh - 142px); min-height: 410px; }
+    }
+
   </style>
 </head>
 
@@ -1745,16 +2011,16 @@
       <div class="container">
         <section class="hero">
           <div class="hero-meta-line">
-            <div class="eyebrow" id="greeting">罗思维，早上好</div>
+            <div class="eyebrow" id="greeting">For 罗思维</div>
             <div class="hero-date" id="heroDate"></div>
           </div>
-          <h1>今天，继续<br><span>向前一点。</span></h1>
-          <p class="hero-copy">记住更多单词，保持更好的饮食选择，在凌晨一点前结束一天。小进步会被认真记录，也会得到回报。</p>
+          <h1>Keep going,<br><span>quietly.</span></h1>
+          <p class="hero-copy">Study. Sleep. Shape. Three quiet habits, moving in one direction.</p>
         </section>
 
-        <section class="reward-summary" aria-label="积分与礼品概览">
+        <section class="reward-summary" id="rewardSummary" aria-label="Milestone overview">
           <div>
-            <div class="reward-title">里程与礼品 <small>MILESTONES</small></div>
+            <div class="reward-title">Milestones</div>
             <div class="reward-note" id="rewardSummaryText">每两个里程积分，可以向董纪君兑换一份神秘礼品。</div>
           </div>
           <div class="reward-metrics">
@@ -1774,136 +2040,88 @@
           </div>
         </section>
 
-        <section class="cards-grid" aria-label="三个目标">
-          <article class="habit-card ielts" data-open="ieltsModal" tabindex="0" role="button" aria-label="打开 IELTS 记录">
+        <section class="cards-grid" aria-label="Three daily goals">
+          <article class="habit-card ielts" data-card-type="ielts" data-open="ieltsModal" tabindex="0" role="button" aria-label="Open IELTS">
             <div class="card-head">
               <div class="card-heading">
                 <div class="card-icon ielts-icon" aria-hidden="true">
                   <svg viewBox="0 0 24 24"><path d="M5 4.8A2.8 2.8 0 0 1 7.8 2H20v17H7.8A2.8 2.8 0 0 0 5 21.8Z"></path><path d="M5 4.8v17"></path><path d="M9 7h7"></path><path d="M9 11h6"></path></svg>
                 </div>
                 <div>
-                  <div class="card-title-cn">雅思学习</div>
-                  <div class="card-label">01 · IELTS</div>
+                  <div class="card-title-en">IELTS</div>
+                  <div class="card-label">01 · STUDY</div>
                 </div>
               </div>
-              <div class="card-arrow">→</div>
+              <div class="card-arrow" aria-hidden="true">›</div>
             </div>
-
-            <div class="primary-value" id="ieltsPrimary">SET
-              <small id="ieltsPrimaryLabel">设置考试日期</small>
-            </div>
-
-            <div class="secondary-data">
-              <div class="secondary-row">
-                <span>今日新增</span>
-                <strong id="todayWords">0 words</strong>
-              </div>
-              <div class="secondary-row">
-                <span>累计新增</span>
-                <strong id="totalWords">0 words</strong>
+            <div class="compact-main">
+              <div class="primary-value" id="ieltsPrimary">SET<small id="ieltsPrimaryLabel">Exam date</small></div>
+              <div class="compact-facts">
+                <div class="compact-fact"><span>Today</span><strong id="todayWords">0 words</strong></div>
+                <div class="compact-fact"><span>Total</span><strong id="totalWords">0 words</strong></div>
               </div>
             </div>
-
             <div class="progress-area">
-              <div class="progress-top">
-                <span>下一里程</span>
-                <strong id="wordProgressText">0 / 500</strong>
-              </div>
-              <div class="progress-track">
-                <div class="progress-fill" id="wordProgressFill"></div>
-              </div>
-              <div class="progress-note" id="wordProgressNote">还差500个单词获得1个里程积分</div>
+              <div class="progress-top"><span>Next milestone</span><strong id="wordProgressText">0 / 500</strong></div>
+              <div class="progress-track"><div class="progress-fill" id="wordProgressFill"></div></div>
+              <div class="progress-note" id="wordProgressNote">500 words remaining</div>
             </div>
           </article>
 
-          <article class="habit-card weight" data-open="weightModal" tabindex="0" role="button" aria-label="打开体重记录">
+          <article class="habit-card weight" data-card-type="weight" data-open="weightModal" tabindex="0" role="button" aria-label="Open Weight">
             <div class="card-head">
               <div class="card-heading">
                 <div class="card-icon weight-icon" aria-hidden="true">
                   <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="4"></rect><path d="M8 10a4 4 0 0 1 8 0"></path><path d="m12 10 2-2"></path></svg>
                 </div>
-                <div>
-                  <div class="card-title-cn">体重管理</div>
-                  <div class="card-label">02 · WEIGHT</div>
-                </div>
+                <div><div class="card-title-en">WEIGHT</div><div class="card-label">02 · BODY</div></div>
               </div>
-              <div class="card-arrow">→</div>
+              <div class="card-arrow" aria-hidden="true">›</div>
             </div>
-
-            <div class="primary-value" id="weightPrimary">—
-              <small id="weightPrimaryLabel">记录今日体重</small>
-            </div>
-
-            <div class="secondary-data">
-              <div class="secondary-row">
-                <span>目标体重</span>
-                <strong id="targetWeightCard">55.0 kg</strong>
+            <div class="compact-main">
+              <div class="primary-value" id="weightPrimary">—<small id="weightPrimaryLabel">Today</small></div>
+              <div class="compact-facts">
+                <div class="compact-fact"><span>Target</span><strong id="targetWeightCard">55.0 kg</strong></div>
+                <div class="compact-fact"><span>Change</span><strong id="weightChangeCard">—</strong></div>
               </div>
-              <div class="secondary-row">
-                <span>累计变化</span>
-                <strong id="weightChangeCard">—</strong>
-              </div>
-              <canvas class="mini-chart" id="weightSparkline" aria-label="体重变化趋势"></canvas>
             </div>
-
+            <canvas class="mini-chart" id="weightSparkline" aria-label="Weight trend"></canvas>
             <div class="progress-area">
-              <div class="progress-top">
-                <span>健康选择</span>
-                <strong id="healthProgressText">0 / 50</strong>
-              </div>
-              <div class="progress-track">
-                <div class="progress-fill" id="healthProgressFill"></div>
-              </div>
-              <div class="progress-note" id="healthProgressNote">还差50分获得1个里程积分</div>
+              <div class="progress-top"><span>Healthy choices</span><strong id="healthProgressText">0 / 50</strong></div>
+              <div class="progress-track"><div class="progress-fill" id="healthProgressFill"></div></div>
+              <div class="progress-note" id="healthProgressNote">50 choices remaining</div>
             </div>
           </article>
 
-          <article class="habit-card sleep" data-open="sleepModal" tabindex="0" role="button" aria-label="打开早睡打卡">
+          <article class="habit-card sleep" data-card-type="sleep" data-open="sleepModal" tabindex="0" role="button" aria-label="Open Sleep">
             <div class="card-head">
               <div class="card-heading">
                 <div class="card-icon sleep-icon" aria-hidden="true">
                   <svg viewBox="0 0 24 24"><path d="M20 15.2A8.5 8.5 0 0 1 8.8 4 8.5 8.5 0 1 0 20 15.2Z"></path><path d="M16.8 4.2v3.2"></path><path d="M15.2 5.8h3.2"></path></svg>
                 </div>
-                <div>
-                  <div class="card-title-cn">早睡打卡</div>
-                  <div class="card-label">03 · SLEEP</div>
-                </div>
+                <div><div class="card-title-en">SLEEP</div><div class="card-label">03 · REST</div></div>
               </div>
-              <div class="card-arrow">→</div>
+              <div class="card-arrow" aria-hidden="true">›</div>
             </div>
-
-            <div class="primary-value" id="sleepPrimary">0
-              <small id="sleepPrimaryLabel">当前连续天数</small>
-            </div>
-
-            <div class="secondary-data">
-              <div class="secondary-row">
-                <span>今晚状态</span>
-                <strong id="tonightStatus">等待打卡</strong>
-              </div>
-              <div class="secondary-row">
-                <span>历史最佳</span>
-                <strong id="bestSleepStreak">0 days</strong>
+            <div class="compact-main">
+              <div class="primary-value" id="sleepPrimary">0<small id="sleepPrimaryLabel">Current streak</small></div>
+              <div class="compact-facts">
+                <div class="compact-fact"><span>Tonight</span><strong id="tonightStatus">Open later</strong></div>
+                <div class="compact-fact"><span>Best</span><strong id="bestSleepStreak">0 days</strong></div>
               </div>
             </div>
-
             <div class="progress-area">
-              <div class="progress-top">
-                <span>连续两周</span>
-                <strong id="sleepProgressText">0 / 14</strong>
-              </div>
-              <div class="progress-track">
-                <div class="progress-fill" id="sleepProgressFill"></div>
-              </div>
-              <div class="progress-note" id="sleepProgressNote">还差14晚获得1个里程积分</div>
+              <div class="progress-top"><span>Two weeks</span><strong id="sleepProgressText">0 / 14</strong></div>
+              <div class="progress-track"><div class="progress-fill" id="sleepProgressFill"></div></div>
+              <div class="progress-note" id="sleepProgressNote">14 nights remaining</div>
             </div>
           </article>
         </section>
 
         <section class="section" id="ledgerSection">
           <div class="section-head">
-            <h2>里程记录</h2>
-            <p>每一次阶段完成都会形成记录。已获得的积分不会因后续修改或断签被收回。</p>
+            <h2>Milestones</h2>
+            <p>Every completed stage is recorded. Earned milestones remain available even after a later interruption.</p>
           </div>
 
           <div class="overview-panel">
@@ -2133,7 +2351,7 @@
         <div class="modal-section">
           <div class="modal-section-title">规则</div>
           <div class="empty-state" style="padding:0">
-            每天20:00至次日00:59可以打卡。00:00至00:59的打卡仍计入前一晚。凌晨1点后未完成会中断当前连续天数，且不支持补签；已经获得的里程积分不会被取消。
+            打卡时间以设置中的开放与截止时间为准。跨午夜的打卡会自动归入前一晚；错过截止时间后不支持补签，已经获得的里程积分不会被取消。
           </div>
         </div>
 
@@ -2195,36 +2413,41 @@
       <form id="settingsForm">
         <div class="modal-body">
           <div class="modal-section">
-            <div class="modal-section-title">专属信息</div>
+            <div class="modal-section-title">Profile & goals</div>
             <div class="form-grid">
-              <div class="field">
-                <label for="userNameInput">使用者</label>
-                <input id="userNameInput" value="罗思维" />
-              </div>
-              <div class="field">
-                <label for="authorNameInput">礼品兑换人 / 网站编写者</label>
-                <input id="authorNameInput" value="董纪君" />
-              </div>
-              <div class="field">
-                <label for="settingsExamDate">IELTS考试日期</label>
-                <input id="settingsExamDate" type="date" />
-              </div>
-              <div class="field">
-                <label for="settingsTargetWeight">目标体重（kg）</label>
-                <input id="settingsTargetWeight" type="number" min="20" max="300" step="0.1" />
-              </div>
+              <div class="field"><label for="userNameInput">For</label><input id="userNameInput" value="罗思维" /></div>
+              <div class="field"><label for="authorNameInput">Gift provider</label><input id="authorNameInput" value="董纪君" /></div>
+              <div class="field"><label for="settingsExamDate">IELTS exam date</label><input id="settingsExamDate" type="date" /></div>
+              <div class="field"><label for="settingsTargetWeight">Target weight (kg)</label><input id="settingsTargetWeight" type="number" min="20" max="300" step="0.1" /></div>
             </div>
           </div>
 
           <div class="modal-section">
-            <div class="modal-section-title">数据迁移</div>
-            <div class="transfer-note">
-              在旧设备点击“导出 / 分享”，把JSON备份发送到微信、文件或网盘；在新设备打开本网站后点击“导入备份”，即可恢复单词、体重、早睡、积分和礼品卡。
+            <div class="modal-section-title">Home screen</div>
+            <div class="form-grid">
+              <div class="field"><label for="cardOrderInput">Card order</label><select id="cardOrderInput"><option value="ielts,weight,sleep">IELTS · Weight · Sleep</option><option value="sleep,ielts,weight">Sleep · IELTS · Weight</option><option value="weight,sleep,ielts">Weight · Sleep · IELTS</option></select></div>
+              <div class="field"><label for="colorStyleInput">Accent style</label><select id="colorStyleInput"><option value="color">Color</option><option value="mono">Monochrome</option></select></div>
+              <div class="field"><label for="showRewardInput">Milestone summary</label><select id="showRewardInput"><option value="show">Show on home</option><option value="hide">Hide from home</option></select></div>
+              <div class="field"><label for="showHistoryInput">Milestone history</label><select id="showHistoryInput"><option value="show">Show below cards</option><option value="hide">Hide from home</option></select></div>
             </div>
+          </div>
+
+          <div class="modal-section">
+            <div class="modal-section-title">Sleep check-in window</div>
+            <div class="form-grid">
+              <div class="field"><label for="sleepStartInput">Opens at</label><input id="sleepStartInput" type="time" value="20:00" /></div>
+              <div class="field"><label for="sleepDeadlineInput">Closes at</label><input id="sleepDeadlineInput" type="time" value="01:00" /></div>
+            </div>
+            <div class="transfer-note">跨过午夜的时间段会自动归入前一晚。例如20:00至01:00，凌晨00:30仍计入前一晚。</div>
+          </div>
+
+          <div class="modal-section">
+            <div class="modal-section-title">Data transfer</div>
+            <div class="transfer-note">在旧设备导出JSON文件并通过微信、文件或网盘发送；在新设备打开本站后导入，即可恢复全部记录、积分与兑换卡。</div>
             <div class="data-actions transfer-actions">
-              <button class="button primary" id="exportData" type="button">导出 / 分享数据</button>
-              <button class="button secondary" id="importData" type="button">导入备份</button>
-              <button class="button danger" id="clearData" type="button">清空全部数据</button>
+              <button class="button primary" id="exportData" type="button">Export / Share</button>
+              <button class="button secondary" id="importData" type="button">Import backup</button>
+              <button class="button danger" id="clearData" type="button">Clear all data</button>
               <input class="sr-only" id="importFile" type="file" accept="application/json,.json" />
             </div>
           </div>
@@ -2260,7 +2483,13 @@
           userName: "罗思维",
           authorName: "董纪君",
           examDate: "",
-          targetWeight: 55
+          targetWeight: 55,
+          sleepStart: "20:00",
+          sleepDeadline: "01:00",
+          cardOrder: "ielts,weight,sleep",
+          colorStyle: "color",
+          showRewardSummary: true,
+          showHistory: true
         },
         daily: {},
         sleepCheckins: {},
@@ -2472,72 +2701,73 @@
 
       function getExamCountdown() {
         if (!state.settings.examDate) {
-          return { primary: "SET", label: "设置考试日期" };
+          return { primary: "SET", label: "Exam date" };
         }
 
-        const today = dateFromKey(todayKey());
         const exam = dateFromKey(state.settings.examDate);
         const diff = dayDifference(todayKey(), state.settings.examDate);
 
         if (diff > 0) {
-          return {
-            primary: String(diff),
-            label: `days · ${formatShortDate(exam)}`
-          };
+          return { primary: String(diff), label: `days · ${formatShortDate(exam)}` };
         }
 
         if (diff === 0) {
-          return { primary: "TODAY", label: "IELTS考试日" };
+          return { primary: "TODAY", label: "IELTS exam" };
         }
 
-        return { primary: "DONE", label: `考试日期 ${formatShortDate(exam)}` };
+        return { primary: "DONE", label: formatShortDate(exam) };
+      }
+
+      function timeToMinutes(value, fallback) {
+        const source = /^\d{2}:\d{2}$/.test(String(value || "")) ? value : fallback;
+        const [hours, minutes] = source.split(":").map(Number);
+        return hours * 60 + minutes;
       }
 
       function getNightWindow(now = new Date()) {
-        const hour = now.getHours();
+        const current = now.getHours() * 60 + now.getMinutes();
+        const start = timeToMinutes(state.settings.sleepStart, "20:00");
+        const deadline = timeToMinutes(state.settings.sleepDeadline, "01:00");
+        const crossesMidnight = start >= deadline;
 
-        if (hour >= 20) {
-          return {
-            canCheckIn: true,
-            nightKey: dateKey(now),
-            message: "今晚打卡开放中，截止到次日凌晨1:00。"
-          };
+        if (crossesMidnight) {
+          if (current >= start) {
+            return { canCheckIn: true, nightKey: dateKey(now), message: `Check-in is open until ${state.settings.sleepDeadline || "01:00"}.` };
+          }
+          if (current < deadline) {
+            const previous = new Date(now);
+            previous.setDate(previous.getDate() - 1);
+            return { canCheckIn: true, nightKey: dateKey(previous), message: "This check-in still belongs to last night." };
+          }
+        } else if (current >= start && current < deadline) {
+          return { canCheckIn: true, nightKey: dateKey(now), message: `Check-in is open until ${state.settings.sleepDeadline || "01:00"}.` };
         }
 
-        if (hour < 1) {
-          const previous = new Date(now);
-          previous.setDate(previous.getDate() - 1);
-          return {
-            canCheckIn: true,
-            nightKey: dateKey(previous),
-            message: "仍在昨晚的有效打卡时间内，凌晨1:00截止。"
-          };
-        }
-
-        return {
-          canCheckIn: false,
-          nightKey: null,
-          message: "打卡将在今晚20:00开放，凌晨1:00截止。"
-        };
+        return { canCheckIn: false, nightKey: null, message: `Opens at ${state.settings.sleepStart || "20:00"}.` };
       }
 
-      function sleepReferenceKey(now = new Date()) {
-        const hour = now.getHours();
-        const windowInfo = getNightWindow(now);
+      function latestConcludedNightKey(now = new Date()) {
+        const current = now.getHours() * 60 + now.getMinutes();
+        const start = timeToMinutes(state.settings.sleepStart, "20:00");
+        const deadline = timeToMinutes(state.settings.sleepDeadline, "01:00");
+        const crossesMidnight = start >= deadline;
 
-        if (windowInfo.canCheckIn && state.sleepCheckins[windowInfo.nightKey]) {
-          return windowInfo.nightKey;
-        }
-
-        if (hour >= 20) {
+        if (crossesMidnight) {
+          if (current < deadline) return addDaysToKey(dateKey(now), -2);
           return addDaysToKey(dateKey(now), -1);
         }
 
-        if (hour < 1) {
+        if (current >= deadline) return dateKey(now);
+        return addDaysToKey(dateKey(now), -1);
+      }
+
+      function sleepReferenceKey(now = new Date()) {
+        const windowInfo = getNightWindow(now);
+        if (windowInfo.canCheckIn) {
+          if (state.sleepCheckins[windowInfo.nightKey]) return windowInfo.nightKey;
           return addDaysToKey(windowInfo.nightKey, -1);
         }
-
-        return addDaysToKey(dateKey(now), -1);
+        return latestConcludedNightKey(now);
       }
 
       function currentSleepRun(now = new Date()) {
@@ -2584,11 +2814,10 @@
       function tonightDisplayStatus() {
         const windowInfo = getNightWindow();
         if (windowInfo.canCheckIn) {
-          return state.sleepCheckins[windowInfo.nightKey] ? "已完成" : "等待打卡";
+          return state.sleepCheckins[windowInfo.nightKey] ? "Done" : "Open now";
         }
-
-        const lastNight = addDaysToKey(todayKey(), -1);
-        return state.sleepCheckins[lastNight] ? "昨晚已完成" : "当前已中断";
+        const latestNight = latestConcludedNightKey();
+        return state.sleepCheckins[latestNight] ? "Completed" : "Open later";
       }
 
       function createMilestone(source, level, title, detail, id) {
@@ -2866,9 +3095,7 @@
         const balance = milestoneBalance();
         const gifts = availableGiftCount();
 
-                const hour = new Date().getHours();
-        const greetingText = hour < 11 ? "早上好" : hour < 18 ? "下午好" : "晚上好";
-        $("greeting").textContent = `${user}，${greetingText}`;
+                $("greeting").textContent = `For ${user}`;
         $("heroDate").textContent = formatDate(new Date(), { weekday: "long" });
 
         $("topBalance").textContent = balance;
@@ -2910,7 +3137,7 @@
         $("totalWords").textContent = `${total.toLocaleString()} words`;
         $("wordProgressText").textContent = `${progress} / 500`;
         $("wordProgressFill").style.width = `${progress / 500 * 100}%`;
-        $("wordProgressNote").textContent = `还差${remaining}个单词获得1个里程积分`;
+        $("wordProgressNote").textContent = `${remaining} words remaining`;
       }
 
       function renderWeightCard() {
@@ -2926,7 +3153,7 @@
           $("weightPrimaryLabel").textContent = `kg · ${formatShortDate(latest.date)}`;
         } else {
           $("weightPrimary").firstChild.nodeValue = "—";
-          $("weightPrimaryLabel").textContent = "记录今日体重";
+          $("weightPrimaryLabel").textContent = "Today";
         }
 
         $("targetWeightCard").textContent = `${target.toFixed(1)} kg`;
@@ -2941,7 +3168,7 @@
 
         $("healthProgressText").textContent = `${progress} / 50`;
         $("healthProgressFill").style.width = `${progress / 50 * 100}%`;
-        $("healthProgressNote").textContent = `还差${remaining}分获得1个里程积分`;
+        $("healthProgressNote").textContent = `${remaining} choices remaining`;
 
         drawWeightSparkline();
       }
@@ -2953,12 +3180,12 @@
         const remaining = progress === 0 && run.streak > 0 ? 14 : 14 - progress;
 
         $("sleepPrimary").firstChild.nodeValue = String(run.streak);
-        $("sleepPrimaryLabel").textContent = run.streak === 1 ? "day · 当前连续" : "days · 当前连续";
+        $("sleepPrimaryLabel").textContent = "Current streak";
         $("tonightStatus").textContent = tonightDisplayStatus();
         $("bestSleepStreak").textContent = `${best} days`;
         $("sleepProgressText").textContent = `${progress} / 14`;
         $("sleepProgressFill").style.width = `${progress / 14 * 100}%`;
-        $("sleepProgressNote").textContent = `还差${remaining}晚获得1个里程积分`;
+        $("sleepProgressNote").textContent = `${remaining} nights remaining`;
       }
 
       function renderIeltsDetail() {
@@ -3237,6 +3464,12 @@
         $("authorNameInput").value = state.settings.authorName || "董纪君";
         $("settingsExamDate").value = state.settings.examDate || "";
         $("settingsTargetWeight").value = safeNumber(state.settings.targetWeight, 55);
+        $("sleepStartInput").value = state.settings.sleepStart || "20:00";
+        $("sleepDeadlineInput").value = state.settings.sleepDeadline || "01:00";
+        $("cardOrderInput").value = state.settings.cardOrder || "ielts,weight,sleep";
+        $("colorStyleInput").value = state.settings.colorStyle || "color";
+        $("showRewardInput").value = state.settings.showRewardSummary === false ? "hide" : "show";
+        $("showHistoryInput").value = state.settings.showHistory === false ? "hide" : "show";
       }
 
       function prefillModal(id) {
@@ -3341,11 +3574,17 @@
         state.settings.authorName = $("authorNameInput").value.trim() || "董纪君";
         state.settings.examDate = $("settingsExamDate").value;
         state.settings.targetWeight = safeNumber($("settingsTargetWeight").value, 55);
+        state.settings.sleepStart = $("sleepStartInput").value || "20:00";
+        state.settings.sleepDeadline = $("sleepDeadlineInput").value || "01:00";
+        state.settings.cardOrder = $("cardOrderInput").value || "ielts,weight,sleep";
+        state.settings.colorStyle = $("colorStyleInput").value || "color";
+        state.settings.showRewardSummary = $("showRewardInput").value !== "hide";
+        state.settings.showHistory = $("showHistoryInput").value !== "hide";
 
         saveState();
         closeModal($("settingsModal"));
         renderAll();
-        showToast("设置已保存");
+        showToast("Settings saved");
       }
 
       function toggleGiftStatus(id) {
@@ -3604,7 +3843,20 @@
         ctx.fillText(formatShortDate(points[points.length - 1].date), width - padding.right, height - 8);
       }
 
+      function applyHomeSettings() {
+        const order = String(state.settings.cardOrder || "ielts,weight,sleep").split(",");
+        const grid = document.querySelector(".cards-grid");
+        order.forEach(type => {
+          const card = grid?.querySelector(`[data-card-type="${type}"]`);
+          if (card) grid.appendChild(card);
+        });
+        document.body.classList.toggle("monochrome", state.settings.colorStyle === "mono");
+        $("rewardSummary").hidden = state.settings.showRewardSummary === false;
+        $("ledgerSection").hidden = state.settings.showHistory === false;
+      }
+
       function renderAll() {
+        applyHomeSettings();
         renderHeaderAndRewards();
         renderIeltsCard();
         renderWeightCard();
