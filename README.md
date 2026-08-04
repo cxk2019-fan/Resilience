@@ -2734,6 +2734,90 @@
       }
     }
 
+  
+    /* =============================================================
+       Neutral reward palette
+       Removes champagne-gold accents while preserving semantic colors.
+       ============================================================= */
+    :root {
+      --gold: var(--text);
+      --gold-soft: #f3f4f6;
+      --gold-accent: #36363a;
+    }
+
+    .reward-summary,
+    .gift-unlocked-banner {
+      color: var(--text);
+      background:
+        radial-gradient(circle at 92% -35%, rgba(62, 143, 234, .09), transparent 45%),
+        rgba(255, 255, 255, .94);
+      border-color: rgba(29, 29, 31, .08);
+      box-shadow: 0 12px 32px rgba(38, 45, 62, .055);
+    }
+
+    .reward-title,
+    .gift-unlocked-banner .reward-title {
+      color: var(--text);
+    }
+
+    .reward-metric strong {
+      color: var(--text);
+    }
+
+    .milestone-pill {
+      color: var(--text);
+      background: rgba(255, 255, 255, .86);
+      border-color: var(--line);
+    }
+
+    .milestone-pill strong {
+      color: #fff;
+      background: var(--text);
+    }
+
+    .source-dot.gift {
+      background: var(--text);
+    }
+
+    .gift-unlocked-icon {
+      color: var(--blue);
+      background: var(--blue-soft);
+      box-shadow: inset 0 0 0 1px rgba(62, 143, 234, .08);
+    }
+
+    .gift-unlocked-banner .reward-button {
+      color: #fff;
+      background: var(--text);
+      box-shadow: 0 8px 20px rgba(29, 29, 31, .13);
+    }
+
+    .celebration-card {
+      background:
+        radial-gradient(circle at 100% 0%, rgba(62, 143, 234, .10), transparent 34%),
+        radial-gradient(circle at 0% 100%, rgba(121, 104, 216, .075), transparent 32%),
+        #fff;
+    }
+
+    .gift-card-view {
+      background:
+        radial-gradient(circle at 86% 12%, rgba(255, 255, 255, .13), transparent 24%),
+        linear-gradient(145deg, #1d1d1f, #35353a);
+    }
+
+    .target-weight-copy span {
+      display: none;
+    }
+
+    .target-weight-compact {
+      min-height: 68px;
+    }
+
+    @media (max-width: 720px) {
+      .target-weight-compact {
+        min-height: 62px;
+      }
+    }
+
   </style>
 </head>
 
@@ -3020,7 +3104,6 @@
               <div class="target-weight-compact">
                 <div class="target-weight-copy">
                   <label for="targetWeightInput">目标体重</label>
-                  <span>低频设置，可直接输入</span>
                 </div>
                 <div class="target-weight-input-wrap">
                   <input
@@ -3074,42 +3157,6 @@
               </div>
             </div>
 
-            <div class="draft-summary health-score">
-              <div>
-                <div class="draft-summary-title">今日健康积分</div>
-                <div class="draft-formula">每完成一个选择增加1分</div>
-              </div>
-              <strong id="healthTodayScore">0 / 4</strong>
-            </div>
-          </div>
-
-          <div class="modal-section">
-            <div class="modal-section-title">进度</div>
-            <div class="summary-box">
-              <div><span>起始体重</span><strong id="startWeightDetail">—</strong></div>
-              <div><span>当前体重</span><strong id="currentWeightDetail">—</strong></div>
-              <div><span>距离目标</span><strong id="weightRemainingDetail">—</strong></div>
-            </div>
-
-            <div class="detail-progress">
-              <div class="progress-top">
-                <span>体重目标</span>
-                <strong id="weightGoalText">尚无足够数据</strong>
-              </div>
-              <div class="progress-track">
-                <div class="progress-fill" id="weightGoalFill" style="background:rgba(36,161,72,.5)"></div>
-              </div>
-            </div>
-
-            <div class="detail-progress">
-              <div class="progress-top">
-                <span>健康选择</span>
-                <strong id="healthDetailProgressText">0 / 50</strong>
-              </div>
-              <div class="progress-track">
-                <div class="progress-fill" id="healthDetailProgressFill" style="background:var(--green)"></div>
-              </div>
-            </div>
           </div>
 
           <div class="modal-section">
@@ -4322,12 +4369,8 @@
 
       function renderWeightDetail() {
         const today = ensureDaily();
-        const first = firstWeight();
         const latest = latestWeight();
         const target = clamp(safeNumber(state.settings.targetWeight, 55), 40, 60);
-        const points = totalHealthPoints();
-        const progress = currentRound(points, 50);
-        const goal = weightGoalProgress();
         const todayValue = safeNumber(today.weight.value, NaN);
         const pickerValue = Number.isFinite(todayValue) && todayValue >= 40 && todayValue <= 60
           ? todayValue
@@ -4341,17 +4384,6 @@
         $("eightyFull").checked = Boolean(today.weight.eightyFull);
         $("exerciseDone").checked = Boolean(today.weight.exerciseDone);
         renderWeightDraftSummary();
-
-        $("startWeightDetail").textContent = first ? `${first.value.toFixed(2)} kg` : "—";
-        $("currentWeightDetail").textContent = latest ? `${latest.value.toFixed(2)} kg` : "—";
-        $("weightRemainingDetail").textContent = latest
-          ? `${Math.abs(latest.value - target).toFixed(2)} kg`
-          : "—";
-
-        $("weightGoalText").textContent = goal.text;
-        $("weightGoalFill").style.width = `${goal.ratio * 100}%`;
-        $("healthDetailProgressText").textContent = `${progress} / 50`;
-        $("healthDetailProgressFill").style.width = `${progress / 50 * 100}%`;
 
         const rows = Object.keys(state.daily)
           .sort()
