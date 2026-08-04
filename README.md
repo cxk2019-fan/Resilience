@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="color-scheme" content="light" />
-  <meta name="theme-color" content="#f5f5f7" />
+  <meta name="theme-color" content="#f5f6f8" />
   <title>Three · 罗思维</title>
   <style>
     :root {
@@ -2307,6 +2307,433 @@
       .dual-wheel-layout { grid-template-columns: 72px 14px 72px auto; }
     }
 
+  
+    /* =============================================================
+       Refined Apple-inspired color system
+       Low saturation, clean white surfaces, soft semantic accents.
+       ============================================================= */
+    :root {
+      --bg: #f5f6f8;
+      --surface: rgba(255, 255, 255, .925);
+      --surface-solid: #ffffff;
+      --text: #1d1d1f;
+      --secondary: #6b6b73;
+      --tertiary: #888890;
+      --line: rgba(29, 29, 31, .075);
+      --line-strong: rgba(29, 29, 31, .135);
+
+      --blue: #3e8fea;
+      --blue-soft: #eaf4ff;
+      --blue-glow: rgba(62, 143, 234, .085);
+
+      --green: #35a96b;
+      --green-soft: #eaf8f0;
+      --green-glow: rgba(53, 169, 107, .08);
+
+      --purple: #7968d8;
+      --purple-soft: #f0edff;
+      --purple-glow: rgba(121, 104, 216, .085);
+
+      --gold: #a97828;
+      --gold-soft: #fff7e8;
+      --gold-accent: #c4933f;
+
+      --danger: #d94b43;
+      --shadow: 0 24px 70px rgba(38, 45, 62, .075);
+      --shadow-soft: 0 12px 36px rgba(38, 45, 62, .05);
+    }
+
+    html {
+      background: var(--bg);
+    }
+
+    body {
+      background:
+        radial-gradient(circle at 4% -9%, rgba(89, 154, 255, .085), transparent 29%),
+        radial-gradient(circle at 97% 2%, rgba(140, 117, 232, .07), transparent 25%),
+        radial-gradient(circle at 52% 108%, rgba(215, 188, 145, .065), transparent 31%),
+        var(--bg);
+    }
+
+    .topbar {
+      background: rgba(245, 246, 248, .80);
+    }
+
+    .brand-mark {
+      background: linear-gradient(
+        135deg,
+        #4a9bf0 0 33%,
+        #47b779 33% 66%,
+        #8674df 66%
+      );
+      box-shadow:
+        inset 0 0 0 1px rgba(255, 255, 255, .62),
+        0 5px 14px rgba(62, 143, 234, .13);
+    }
+
+    .habit-card {
+      background: rgba(255, 255, 255, .93);
+      border-color: rgba(255, 255, 255, .94);
+    }
+
+    .habit-card.ielts {
+      background:
+        radial-gradient(circle at 105% 112%, var(--blue-glow), transparent 37%),
+        rgba(255, 255, 255, .93);
+    }
+
+    .habit-card.weight {
+      background:
+        radial-gradient(circle at 105% 112%, var(--green-glow), transparent 37%),
+        rgba(255, 255, 255, .93);
+    }
+
+    .habit-card.sleep {
+      background:
+        radial-gradient(circle at 105% 112%, var(--purple-glow), transparent 37%),
+        rgba(255, 255, 255, .93);
+    }
+
+    .habit-card::after {
+      opacity: .055;
+    }
+
+    .ielts-icon {
+      color: var(--blue);
+      background: var(--blue-soft);
+      box-shadow: inset 0 0 0 1px rgba(62, 143, 234, .045);
+    }
+
+    .weight-icon {
+      color: var(--green);
+      background: var(--green-soft);
+      box-shadow: inset 0 0 0 1px rgba(53, 169, 107, .045);
+    }
+
+    .sleep-icon {
+      color: var(--purple);
+      background: var(--purple-soft);
+      box-shadow: inset 0 0 0 1px rgba(121, 104, 216, .045);
+    }
+
+    .ielts .progress-fill,
+    #ieltsDetailProgressFill {
+      background: linear-gradient(90deg, #6db4ff, var(--blue)) !important;
+    }
+
+    .weight .progress-fill,
+    #healthDetailProgressFill {
+      background: linear-gradient(90deg, #65c990, var(--green)) !important;
+    }
+
+    .sleep .progress-fill,
+    #sleepDetailProgressFill {
+      background: linear-gradient(90deg, #a091f0, var(--purple)) !important;
+    }
+
+    .source-dot.ielts {
+      background: linear-gradient(145deg, #65adf6, var(--blue));
+    }
+
+    .source-dot.health {
+      background: linear-gradient(145deg, #61c78c, var(--green));
+    }
+
+    .source-dot.sleep {
+      background: linear-gradient(145deg, #9b8bea, var(--purple));
+    }
+
+    .source-dot.gift {
+      background: linear-gradient(145deg, var(--gold-accent), var(--gold));
+    }
+
+    .ielts-choice input:checked + label {
+      color: #276ead;
+      background: var(--blue-soft);
+      border-color: rgba(62, 143, 234, .25);
+    }
+
+    .ielts-choice input:checked + label .choice-mark {
+      background: var(--blue);
+      border-color: var(--blue);
+    }
+
+    .choice:not(.ielts-choice) input:checked + label {
+      color: #247b4d;
+      background: var(--green-soft);
+      border-color: rgba(53, 169, 107, .25);
+    }
+
+    .choice:not(.ielts-choice) input:checked + label .choice-mark {
+      background: var(--green);
+      border-color: var(--green);
+    }
+
+    .weekend-banner {
+      color: #5748b3;
+      background: var(--purple-soft);
+      border-color: rgba(121, 104, 216, .18);
+    }
+
+    .weekend-banner-icon {
+      color: var(--purple);
+      background: rgba(121, 104, 216, .11);
+    }
+
+    .reward-summary {
+      background:
+        radial-gradient(circle at 92% -30%, rgba(196, 147, 63, .12), transparent 46%),
+        rgba(255, 255, 255, .925);
+      border-color: rgba(196, 147, 63, .11);
+    }
+
+    .reward-title {
+      color: #6f4d18;
+    }
+
+    .reward-metric strong {
+      color: var(--gold);
+    }
+
+    .milestone-pill {
+      border-color: rgba(169, 120, 40, .14);
+      background: rgba(255, 247, 232, .84);
+    }
+
+    .milestone-pill strong {
+      background: linear-gradient(145deg, var(--gold-accent), var(--gold));
+    }
+
+    .gift-card-view {
+      background:
+        radial-gradient(circle at 86% 12%, rgba(255, 244, 216, .16), transparent 25%),
+        linear-gradient(145deg, #24211c, #3e3528);
+    }
+
+    .celebration-card {
+      background:
+        radial-gradient(circle at 100% 0%, rgba(196, 147, 63, .15), transparent 34%),
+        #fff;
+    }
+
+    .backup-panel,
+    .draft-summary,
+    .sleep-status,
+    .summary-box,
+    .gift-record,
+    .transfer-note {
+      background: rgba(247, 248, 250, .92);
+    }
+
+    .quick-data-button {
+      color: var(--blue);
+    }
+
+    @media (max-width: 720px) {
+      body {
+        background:
+          radial-gradient(circle at -5% -4%, rgba(89, 154, 255, .075), transparent 27%),
+          radial-gradient(circle at 105% 6%, rgba(140, 117, 232, .06), transparent 24%),
+          radial-gradient(circle at 48% 105%, rgba(215, 188, 145, .055), transparent 26%),
+          var(--bg);
+      }
+
+      .topbar {
+        background: rgba(255, 255, 255, .86);
+        border-color: rgba(255, 255, 255, .88);
+        box-shadow: 0 14px 46px rgba(45, 51, 67, .12);
+      }
+
+      .habit-card {
+        box-shadow: 0 12px 34px rgba(45, 51, 67, .052);
+      }
+
+      .reward-summary {
+        box-shadow: 0 10px 30px rgba(82, 61, 24, .045);
+      }
+    }
+
+  
+    /* =============================================================
+       Gift-on-demand banner & compact target weight
+       ============================================================= */
+    .reward-summary[hidden] {
+      display: none !important;
+    }
+
+    .gift-unlocked-banner {
+      min-height: 74px;
+      grid-template-columns: 1fr auto;
+      padding: 17px 20px;
+      border-color: rgba(196, 147, 63, .20);
+      background:
+        radial-gradient(circle at 88% -45%, rgba(196, 147, 63, .20), transparent 48%),
+        linear-gradient(145deg, rgba(255, 250, 240, .97), rgba(255, 255, 255, .94));
+      box-shadow: 0 12px 32px rgba(117, 82, 25, .075);
+    }
+
+    .gift-unlocked-copy {
+      min-width: 0;
+      display: flex;
+      align-items: center;
+      gap: 13px;
+    }
+
+    .gift-unlocked-icon {
+      width: 40px;
+      height: 40px;
+      flex: 0 0 auto;
+      display: grid;
+      place-items: center;
+      border-radius: 13px;
+      color: var(--gold);
+      background: var(--gold-soft);
+      box-shadow: inset 0 0 0 1px rgba(169, 120, 40, .09);
+      font-size: 20px;
+    }
+
+    .gift-unlocked-banner .reward-title {
+      color: #76531d;
+      font-size: 16px;
+    }
+
+    .gift-unlocked-banner .reward-note {
+      margin-top: 4px;
+      font-size: 12px;
+    }
+
+    .gift-unlocked-banner .reward-button {
+      min-width: 92px;
+      background: linear-gradient(145deg, var(--gold-accent), var(--gold));
+      box-shadow: 0 8px 20px rgba(169, 120, 40, .17);
+    }
+
+    .target-weight-compact {
+      min-height: 82px;
+      padding: 15px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      align-self: start;
+      border-radius: 17px;
+      background: rgba(247, 248, 250, .94);
+      border: 1px solid var(--line);
+    }
+
+    .target-weight-copy {
+      min-width: 0;
+    }
+
+    .target-weight-copy label {
+      display: block;
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 680;
+    }
+
+    .target-weight-copy span {
+      display: block;
+      margin-top: 5px;
+      color: var(--secondary);
+      font-size: 10px;
+      line-height: 1.35;
+    }
+
+    .target-weight-input-wrap {
+      flex: 0 0 auto;
+      min-height: 46px;
+      padding: 0 12px;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      border-radius: 13px;
+      background: #fff;
+      border: 1px solid var(--line-strong);
+    }
+
+    .target-weight-input-wrap:focus-within {
+      border-color: rgba(53, 169, 107, .42);
+      box-shadow: 0 0 0 4px rgba(53, 169, 107, .08);
+    }
+
+    .target-weight-input-wrap input {
+      width: 76px;
+      padding: 0;
+      border: 0;
+      outline: 0;
+      color: var(--text);
+      background: transparent;
+      font-size: 20px;
+      font-weight: 690;
+      letter-spacing: -.025em;
+      text-align: right;
+      appearance: textfield;
+      -moz-appearance: textfield;
+    }
+
+    .target-weight-input-wrap input::-webkit-outer-spin-button,
+    .target-weight-input-wrap input::-webkit-inner-spin-button {
+      margin: 0;
+      -webkit-appearance: none;
+    }
+
+    .target-weight-input-wrap span {
+      color: var(--secondary);
+      font-size: 12px;
+      font-weight: 650;
+    }
+
+    @media (max-width: 720px) {
+      .gift-unlocked-banner {
+        min-height: 64px;
+        padding: 12px 13px;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 10px;
+      }
+
+      .gift-unlocked-icon {
+        width: 34px;
+        height: 34px;
+        border-radius: 11px;
+        font-size: 17px;
+      }
+
+      .gift-unlocked-banner .reward-title {
+        font-size: 13px;
+      }
+
+      .gift-unlocked-banner .reward-note {
+        font-size: 10px;
+        line-height: 1.35;
+      }
+
+      .gift-unlocked-banner .reward-button {
+        width: auto;
+        min-width: 70px;
+        min-height: 34px;
+        margin: 0;
+        padding: 0 12px;
+        font-size: 11px;
+      }
+
+      .target-weight-compact {
+        min-height: 72px;
+        padding: 12px 13px;
+      }
+
+      .target-weight-input-wrap {
+        min-height: 42px;
+        padding: 0 10px;
+      }
+
+      .target-weight-input-wrap input {
+        width: 70px;
+        font-size: 18px;
+      }
+    }
+
   </style>
 </head>
 
@@ -2351,26 +2778,15 @@
           <p class="hero-copy">Study. Sleep. Shape. Three quiet habits, moving in one direction.</p>
         </section>
 
-        <section class="reward-summary" id="rewardSummary" aria-label="Milestone overview">
-          <div>
-            <div class="reward-title">Milestones</div>
-            <div class="reward-note" id="rewardSummaryText">每两个里程积分，可以向董纪君兑换一份神秘礼品。</div>
+        <section class="reward-summary gift-unlocked-banner" id="rewardSummary" aria-label="神秘礼品已解锁" hidden>
+          <div class="gift-unlocked-copy">
+            <div class="gift-unlocked-icon" aria-hidden="true">✦</div>
+            <div>
+              <div class="reward-title">Gift unlocked</div>
+              <div class="reward-note" id="rewardSummaryText">已经可以兑换一份神秘礼品。</div>
+            </div>
           </div>
-          <div class="reward-metrics">
-            <div class="reward-metric">
-              <strong id="earnedCount">0</strong>
-              <span>累计获得</span>
-            </div>
-            <div class="reward-metric">
-              <strong id="balanceCount">0</strong>
-              <span>当前可用</span>
-            </div>
-            <div class="reward-metric">
-              <strong id="giftCount">0</strong>
-              <span>可兑换礼品</span>
-            </div>
-            <button class="reward-button" id="redeemHome" type="button" hidden>兑换礼品</button>
-          </div>
+          <button class="reward-button" id="redeemHome" type="button">Redeem</button>
         </section>
 
         <section class="cards-grid" aria-label="Three daily goals">
@@ -2601,18 +3017,24 @@
           <div class="modal-section">
             <div class="modal-section-title">体重</div>
             <div class="picker-grid">
-              <div class="wheel-field">
-                <label>目标体重</label>
-                <div class="wheel-shell" aria-label="选择目标体重">
-                  <div class="wheel-focus" aria-hidden="true"></div>
-                  <div class="dual-wheel-layout">
-                    <div class="wheel-column" id="targetWeightWholeWheel" role="listbox" aria-label="目标体重整数"></div>
-                    <div class="wheel-dot">.</div>
-                    <div class="wheel-column" id="targetWeightDecimalWheel" role="listbox" aria-label="目标体重小数"></div>
-                    <div class="wheel-unit">kg</div>
-                  </div>
+              <div class="target-weight-compact">
+                <div class="target-weight-copy">
+                  <label for="targetWeightInput">目标体重</label>
+                  <span>低频设置，可直接输入</span>
                 </div>
-                <input id="targetWeightInput" type="hidden" value="55.00" />
+                <div class="target-weight-input-wrap">
+                  <input
+                    id="targetWeightInput"
+                    type="number"
+                    inputmode="decimal"
+                    min="40"
+                    max="60"
+                    step="0.01"
+                    value="55.00"
+                    aria-label="目标体重"
+                  />
+                  <span>kg</span>
+                </div>
               </div>
 
               <div class="wheel-field">
@@ -2850,13 +3272,6 @@
                 <select id="colorStyleInput">
                   <option value="color">彩色</option>
                   <option value="mono">黑白</option>
-                </select>
-              </div>
-              <div class="field">
-                <label for="showRewardInput">积分概览</label>
-                <select id="showRewardInput">
-                  <option value="show">在首页显示</option>
-                  <option value="hide">不在首页显示</option>
                 </select>
               </div>
               <div class="field">
@@ -3724,19 +4139,18 @@
           renderIeltsDraftSummary();
         });
 
-        ["target", "today"].forEach(prefix => {
-          buildWheel(`${prefix}WeightWholeWheel`, 40, 60, value => String(value), value => {
-            if (value === 60 && wheelValue(`${prefix}WeightDecimalWheel`) > 0) {
-              setWheelValue(`${prefix}WeightDecimalWheel`, 0);
-            }
-            updateWeightHidden(prefix, `${prefix}WeightInput`);
-          });
-          buildWheel(`${prefix}WeightDecimalWheel`, 0, 99, value => String(value).padStart(2, "0"), () => {
-            if (wheelValue(`${prefix}WeightWholeWheel`) === 60 && wheelValue(`${prefix}WeightDecimalWheel`) > 0) {
-              setWheelValue(`${prefix}WeightDecimalWheel`, 0);
-            }
-            updateWeightHidden(prefix, `${prefix}WeightInput`);
-          });
+        const prefix = "today";
+        buildWheel(`${prefix}WeightWholeWheel`, 40, 60, value => String(value), value => {
+          if (value === 60 && wheelValue(`${prefix}WeightDecimalWheel`) > 0) {
+            setWheelValue(`${prefix}WeightDecimalWheel`, 0);
+          }
+          updateWeightHidden(prefix, `${prefix}WeightInput`);
+        });
+        buildWheel(`${prefix}WeightDecimalWheel`, 0, 99, value => String(value).padStart(2, "0"), () => {
+          if (wheelValue(`${prefix}WeightWholeWheel`) === 60 && wheelValue(`${prefix}WeightDecimalWheel`) > 0) {
+            setWheelValue(`${prefix}WeightDecimalWheel`, 0);
+          }
+          updateWeightHidden(prefix, `${prefix}WeightInput`);
         });
       }
 
@@ -3750,9 +4164,6 @@
         $("heroDate").textContent = formatDate(new Date(), { weekday: "long" });
 
         $("topBalance").textContent = balance;
-        $("earnedCount").textContent = state.milestones.length;
-        $("balanceCount").textContent = balance;
-        $("giftCount").textContent = gifts;
 
         $("ledgerEarned").textContent = state.milestones.length;
         $("ledgerRedeemed").textContent = state.redemptions.length;
@@ -3762,13 +4173,16 @@
         $("modalUsed").textContent = state.redemptions.length * 2;
         $("modalAvailable").textContent = balance;
 
+        const rewardSummary = $("rewardSummary");
         if (gifts > 0) {
-          $("rewardSummaryText").textContent = `现在可以向${author}兑换${gifts}份神秘礼品。`;
-          $("redeemHome").hidden = false;
+          rewardSummary.hidden = false;
+          $("rewardSummaryText").textContent =
+            gifts === 1
+              ? `已经可以向${author}兑换一份神秘礼品。`
+              : `已经可以向${author}兑换${gifts}份神秘礼品。`;
+          $("redeemHome").textContent = gifts === 1 ? "Redeem" : `Redeem × ${gifts}`;
         } else {
-          const need = balance === 0 ? 2 : 1;
-          $("rewardSummaryText").textContent = `再获得${need}个里程积分，即可向${author}兑换一份神秘礼品。`;
-          $("redeemHome").hidden = true;
+          rewardSummary.hidden = true;
         }
 
         document.querySelector("footer .footer-inner span:first-child").textContent =
@@ -3919,7 +4333,7 @@
           ? todayValue
           : latest?.value || target;
 
-        setWeightWheels("target", target);
+        $("targetWeightInput").value = target.toFixed(2);
         setWeightWheels("today", pickerValue);
 
         $("noLateSnack").checked = Boolean(today.weight.noLateSnack);
@@ -3953,7 +4367,11 @@
             const choices = HEALTH_CHOICES
               .filter(item => Boolean(entry.weight?.[item.key]))
               .map(item => item.label);
-            const note = choices.length ? `${choices.join(" · ")} · ${choices.length}分` : "未勾选健康项目";
+            const note = choices.length === HEALTH_CHOICES.length
+              ? "完美的一天！"
+              : choices.length
+                ? `${choices.join(" · ")} · ${choices.length}分`
+                : "未勾选健康项目";
 
             return `
               <div class="history-row">
@@ -4157,7 +4575,6 @@
         $("settingsTargetWeight").value = clamp(safeNumber(state.settings.targetWeight, 55), 40, 60).toFixed(2);
         $("cardOrderInput").value = state.settings.cardOrder || "ielts,weight,sleep";
         $("colorStyleInput").value = state.settings.colorStyle || "color";
-        $("showRewardInput").value = state.settings.showRewardSummary === false ? "hide" : "show";
         $("showHistoryInput").value = state.settings.showHistory === false ? "hide" : "show";
         renderBackupStatus();
       }
@@ -4271,7 +4688,6 @@
         state.settings.targetWeight = Number(clamp(safeNumber($("settingsTargetWeight").value, 55), 40, 60).toFixed(2));
         state.settings.cardOrder = $("cardOrderInput").value || "ielts,weight,sleep";
         state.settings.colorStyle = $("colorStyleInput").value || "color";
-        state.settings.showRewardSummary = $("showRewardInput").value !== "hide";
         state.settings.showHistory = $("showHistoryInput").value !== "hide";
 
         saveState();
@@ -4557,7 +4973,6 @@
           if (card) grid.appendChild(card);
         });
         document.body.classList.toggle("monochrome", state.settings.colorStyle === "mono");
-        $("rewardSummary").hidden = state.settings.showRewardSummary === false;
         $("ledgerSection").hidden = state.settings.showHistory === false;
       }
 
