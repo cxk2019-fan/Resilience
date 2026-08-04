@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
@@ -1974,6 +1974,339 @@
       .cards-grid { height: calc(100dvh - 142px); min-height: 410px; }
     }
 
+  
+
+    /* =============================================================
+       Three · interaction refinement v3
+       ============================================================= */
+    .progress-number-only {
+      justify-content: flex-end;
+      margin-bottom: 8px;
+    }
+
+    .progress-number-only strong {
+      font-size: 12px;
+    }
+
+    .habit-card .progress-area.compact-progress {
+      padding-top: 18px;
+    }
+
+    .wheel-field {
+      display: grid;
+      gap: 10px;
+    }
+
+    .wheel-field > label,
+    .field-caption {
+      color: var(--secondary);
+      font-size: 12px;
+      font-weight: 630;
+    }
+
+    .wheel-shell {
+      --wheel-row: 46px;
+      position: relative;
+      min-height: 154px;
+      display: grid;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: #f7f7f9;
+    }
+
+    .wheel-shell::before,
+    .wheel-shell::after {
+      content: "";
+      position: absolute;
+      z-index: 3;
+      left: 0;
+      right: 0;
+      height: 47px;
+      pointer-events: none;
+    }
+
+    .wheel-shell::before {
+      top: 0;
+      background: linear-gradient(#f7f7f9 24%, rgba(247,247,249,0));
+    }
+
+    .wheel-shell::after {
+      bottom: 0;
+      background: linear-gradient(rgba(247,247,249,0), #f7f7f9 76%);
+    }
+
+    .wheel-focus {
+      position: absolute;
+      z-index: 1;
+      top: 50%;
+      left: 12px;
+      right: 12px;
+      height: var(--wheel-row);
+      transform: translateY(-50%);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background: rgba(255,255,255,.64);
+      pointer-events: none;
+    }
+
+    .single-wheel-layout {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 128px auto;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .dual-wheel-layout {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 82px 16px 82px auto;
+      align-items: center;
+      justify-content: center;
+      gap: 2px;
+    }
+
+    .wheel-column {
+      height: calc(var(--wheel-row) * 3);
+      overflow-x: hidden;
+      overflow-y: auto;
+      padding-block: var(--wheel-row);
+      scroll-snap-type: y mandatory;
+      overscroll-behavior: contain;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .wheel-column::-webkit-scrollbar { display: none; }
+
+    .wheel-option {
+      height: var(--wheel-row);
+      display: grid;
+      place-items: center;
+      scroll-snap-align: center;
+      color: var(--secondary);
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: -.025em;
+      opacity: .38;
+      transform: scale(.9);
+      transition: opacity .12s ease, transform .12s ease, color .12s ease;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .wheel-option.selected {
+      color: var(--text);
+      opacity: 1;
+      transform: scale(1);
+      font-weight: 700;
+    }
+
+    .wheel-dot {
+      color: var(--text);
+      font-size: 28px;
+      font-weight: 650;
+      text-align: center;
+    }
+
+    .wheel-unit {
+      color: var(--secondary);
+      font-size: 13px;
+      font-weight: 650;
+      white-space: nowrap;
+    }
+
+    .picker-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .choice-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .choice-grid .choice label {
+      min-height: 58px;
+      justify-content: space-between;
+      padding: 0 16px;
+    }
+
+    .choice-content {
+      min-width: 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .choice-emoji {
+      flex: 0 0 auto;
+      font-size: 21px;
+      line-height: 1;
+    }
+
+    .choice-title {
+      font-size: 14px;
+      font-weight: 650;
+    }
+
+    .choice-bonus {
+      color: var(--secondary);
+      font-size: 10px;
+      white-space: nowrap;
+    }
+
+    .ielts-choice input:checked + label {
+      color: var(--blue);
+      background: rgba(0,113,227,.08);
+      border-color: rgba(0,113,227,.25);
+    }
+
+    .ielts-choice input:checked + label .choice-mark {
+      background: var(--blue);
+      border-color: var(--blue);
+    }
+
+    .draft-summary {
+      margin-top: 16px;
+      padding: 16px 18px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 16px;
+      border-radius: 16px;
+      background: #f7f7f9;
+      border: 1px solid var(--line);
+    }
+
+    .draft-summary-title {
+      font-size: 13px;
+      font-weight: 680;
+    }
+
+    .draft-formula {
+      margin-top: 6px;
+      color: var(--secondary);
+      font-size: 11px;
+      line-height: 1.5;
+    }
+
+    .draft-summary strong {
+      font-size: 30px;
+      line-height: 1;
+      letter-spacing: -.045em;
+    }
+
+    .health-score {
+      margin-top: 14px;
+    }
+
+    .weekend-banner {
+      margin-bottom: 14px;
+      padding: 16px 17px;
+      display: grid;
+      grid-template-columns: 36px 1fr;
+      gap: 12px;
+      align-items: start;
+      border-radius: 17px;
+      color: #4f43b8;
+      background: rgba(103,87,217,.09);
+      border: 1px solid rgba(103,87,217,.18);
+    }
+
+    .weekend-banner[hidden] { display: none; }
+
+    .weekend-banner-icon {
+      width: 36px;
+      height: 36px;
+      display: grid;
+      place-items: center;
+      border-radius: 11px;
+      background: rgba(103,87,217,.12);
+      font-size: 19px;
+    }
+
+    .weekend-banner strong {
+      display: block;
+      font-size: 14px;
+    }
+
+    .weekend-banner span {
+      display: block;
+      margin-top: 5px;
+      color: var(--secondary);
+      font-size: 12px;
+      line-height: 1.55;
+    }
+
+    .backup-panel {
+      padding: 17px;
+      border-radius: 17px;
+      background: #f7f7f9;
+      border: 1px solid var(--line);
+    }
+
+    .backup-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+
+    .backup-stat {
+      min-width: 0;
+      padding: 2px 14px;
+    }
+
+    .backup-stat:first-child { padding-left: 0; }
+    .backup-stat + .backup-stat { border-left: 1px solid var(--line); }
+
+    .backup-stat span {
+      display: block;
+      color: var(--secondary);
+      font-size: 11px;
+    }
+
+    .backup-stat strong {
+      display: block;
+      margin-top: 7px;
+      font-size: 17px;
+      line-height: 1.25;
+      overflow-wrap: anywhere;
+    }
+
+    .backup-advice {
+      margin-top: 15px;
+      padding-top: 13px;
+      color: var(--secondary);
+      border-top: 1px solid var(--line);
+      font-size: 12px;
+      line-height: 1.55;
+    }
+
+    @media (max-width: 720px) {
+      .picker-grid { grid-template-columns: 1fr; }
+      .choice-grid { gap: 9px; }
+      .choice-grid .choice label { min-height: 55px; padding: 0 12px; }
+      .choice-title { font-size: 13px; }
+      .choice-bonus { display: none; }
+      .wheel-shell { min-height: 148px; }
+      .draft-summary strong { font-size: 27px; }
+      .habit-card .progress-area.compact-progress { padding-top: 7px; }
+      .progress-number-only { margin-bottom: 5px; }
+    }
+
+    @media (max-width: 370px) {
+      .choice-grid { grid-template-columns: 1fr; }
+      .dual-wheel-layout { grid-template-columns: 72px 14px 72px auto; }
+    }
+
   </style>
 </head>
 
@@ -2047,10 +2380,7 @@
                 <div class="card-icon ielts-icon" aria-hidden="true">
                   <svg viewBox="0 0 24 24"><path d="M5 4.8A2.8 2.8 0 0 1 7.8 2H20v17H7.8A2.8 2.8 0 0 0 5 21.8Z"></path><path d="M5 4.8v17"></path><path d="M9 7h7"></path><path d="M9 11h6"></path></svg>
                 </div>
-                <div>
-                  <div class="card-title-en">IELTS</div>
-                  <div class="card-label">01 · STUDY</div>
-                </div>
+                <div class="card-title-en">IELTS</div>
               </div>
               <div class="card-arrow" aria-hidden="true">›</div>
             </div>
@@ -2061,10 +2391,9 @@
                 <div class="compact-fact"><span>Total</span><strong id="totalWords">0 words</strong></div>
               </div>
             </div>
-            <div class="progress-area">
-              <div class="progress-top"><span>Next milestone</span><strong id="wordProgressText">0 / 500</strong></div>
+            <div class="progress-area compact-progress">
+              <div class="progress-top progress-number-only"><strong id="wordProgressText">0 / 500</strong></div>
               <div class="progress-track"><div class="progress-fill" id="wordProgressFill"></div></div>
-              <div class="progress-note" id="wordProgressNote">500 words remaining</div>
             </div>
           </article>
 
@@ -2074,22 +2403,21 @@
                 <div class="card-icon weight-icon" aria-hidden="true">
                   <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="4"></rect><path d="M8 10a4 4 0 0 1 8 0"></path><path d="m12 10 2-2"></path></svg>
                 </div>
-                <div><div class="card-title-en">WEIGHT</div><div class="card-label">02 · BODY</div></div>
+                <div class="card-title-en">WEIGHT</div>
               </div>
               <div class="card-arrow" aria-hidden="true">›</div>
             </div>
             <div class="compact-main">
               <div class="primary-value" id="weightPrimary">—<small id="weightPrimaryLabel">Today</small></div>
               <div class="compact-facts">
-                <div class="compact-fact"><span>Target</span><strong id="targetWeightCard">55.0 kg</strong></div>
+                <div class="compact-fact"><span>Target</span><strong id="targetWeightCard">55.00 kg</strong></div>
                 <div class="compact-fact"><span>Change</span><strong id="weightChangeCard">—</strong></div>
               </div>
             </div>
             <canvas class="mini-chart" id="weightSparkline" aria-label="Weight trend"></canvas>
-            <div class="progress-area">
-              <div class="progress-top"><span>Healthy choices</span><strong id="healthProgressText">0 / 50</strong></div>
+            <div class="progress-area compact-progress">
+              <div class="progress-top progress-number-only"><strong id="healthProgressText">0 / 50</strong></div>
               <div class="progress-track"><div class="progress-fill" id="healthProgressFill"></div></div>
-              <div class="progress-note" id="healthProgressNote">50 choices remaining</div>
             </div>
           </article>
 
@@ -2099,7 +2427,7 @@
                 <div class="card-icon sleep-icon" aria-hidden="true">
                   <svg viewBox="0 0 24 24"><path d="M20 15.2A8.5 8.5 0 0 1 8.8 4 8.5 8.5 0 1 0 20 15.2Z"></path><path d="M16.8 4.2v3.2"></path><path d="M15.2 5.8h3.2"></path></svg>
                 </div>
-                <div><div class="card-title-en">SLEEP</div><div class="card-label">03 · REST</div></div>
+                <div class="card-title-en">SLEEP</div>
               </div>
               <div class="card-arrow" aria-hidden="true">›</div>
             </div>
@@ -2110,10 +2438,9 @@
                 <div class="compact-fact"><span>Best</span><strong id="bestSleepStreak">0 days</strong></div>
               </div>
             </div>
-            <div class="progress-area">
-              <div class="progress-top"><span>Two weeks</span><strong id="sleepProgressText">0 / 14</strong></div>
+            <div class="progress-area compact-progress">
+              <div class="progress-top progress-number-only"><strong id="sleepProgressText">0 / 14</strong></div>
               <div class="progress-track"><div class="progress-fill" id="sleepProgressFill"></div></div>
-              <div class="progress-note" id="sleepProgressNote">14 nights remaining</div>
             </div>
           </article>
         </section>
@@ -2158,7 +2485,7 @@
   <div class="modal-layer" id="ieltsModal">
     <div class="modal wide" role="dialog" aria-modal="true" aria-labelledby="ieltsModalTitle">
       <div class="modal-head">
-        <div class="modal-title" id="ieltsModalTitle">IELTS · 单词记忆</div>
+        <div class="modal-title" id="ieltsModalTitle">IELTS · 今日学习</div>
         <button class="close-button" type="button" data-close aria-label="关闭">×</button>
       </div>
 
@@ -2166,37 +2493,79 @@
         <div class="modal-body">
           <div class="modal-section">
             <div class="modal-section-title">目标</div>
-            <div class="form-grid">
-              <div class="field">
-                <label for="examDateInput">IELTS考试日期</label>
-                <input id="examDateInput" type="date" />
+            <div class="field">
+              <label for="examDateInput">IELTS考试日期</label>
+              <input id="examDateInput" type="date" />
+            </div>
+          </div>
+
+          <div class="modal-section">
+            <div class="modal-section-title">今日新增单词</div>
+            <div class="wheel-field">
+              <div class="wheel-shell" aria-label="选择今天新增记住的单词数量">
+                <div class="wheel-focus" aria-hidden="true"></div>
+                <div class="single-wheel-layout">
+                  <div class="wheel-column" id="wordWheelColumn" role="listbox" aria-label="单词数量"></div>
+                  <div class="wheel-unit">words</div>
+                </div>
               </div>
-              <div class="field">
-                <label for="todayNewWords">今天新增记住单词</label>
-                <input id="todayNewWords" type="number" min="0" max="10000" step="1" placeholder="例如 80" />
+              <input id="todayNewWords" type="hidden" value="0" />
+            </div>
+          </div>
+
+          <div class="modal-section">
+            <div class="modal-section-title">今日专项学习</div>
+            <div class="choice-grid">
+              <div class="choice ielts-choice">
+                <input id="skillListening" type="checkbox" />
+                <label for="skillListening">
+                  <span class="choice-content"><span class="choice-mark">✓</span><span class="choice-title">听力</span></span>
+                  <span class="choice-bonus">+20词</span>
+                </label>
               </div>
-              <div class="field">
-                <label for="todayReviewWords">今天复习单词（不计积分）</label>
-                <input id="todayReviewWords" type="number" min="0" max="10000" step="1" placeholder="例如 160" />
+              <div class="choice ielts-choice">
+                <input id="skillReading" type="checkbox" />
+                <label for="skillReading">
+                  <span class="choice-content"><span class="choice-mark">✓</span><span class="choice-title">阅读</span></span>
+                  <span class="choice-bonus">+20词</span>
+                </label>
               </div>
-              <div class="field full">
-                <label for="wordNote">备注</label>
-                <textarea id="wordNote" placeholder="例如：完成剑雅阅读生词整理。"></textarea>
+              <div class="choice ielts-choice">
+                <input id="skillWriting" type="checkbox" />
+                <label for="skillWriting">
+                  <span class="choice-content"><span class="choice-mark">✓</span><span class="choice-title">写作</span></span>
+                  <span class="choice-bonus">+20词</span>
+                </label>
               </div>
+              <div class="choice ielts-choice">
+                <input id="skillSpeaking" type="checkbox" />
+                <label for="skillSpeaking">
+                  <span class="choice-content"><span class="choice-mark">✓</span><span class="choice-title">口语</span></span>
+                  <span class="choice-bonus">+20词</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="draft-summary">
+              <div>
+                <div class="draft-summary-title">今日计入进度</div>
+                <div class="draft-formula"><span id="ieltsDraftActual">0</span>个新增 + <span id="ieltsDraftSkill">0</span>个专项折算</div>
+              </div>
+              <strong id="ieltsDraftTotal">0</strong>
             </div>
           </div>
 
           <div class="modal-section">
             <div class="modal-section-title">累计进度</div>
             <div class="summary-box">
-              <div><span>累计新增</span><strong id="ieltsTotalDetail">0</strong></div>
+              <div><span>累计计入</span><strong id="ieltsTotalDetail">0</strong></div>
               <div><span>已完成里程</span><strong id="ieltsMilestonesDetail">0</strong></div>
               <div><span>下一目标</span><strong id="ieltsRemainingDetail">500</strong></div>
             </div>
 
             <div class="detail-progress">
               <div class="progress-top">
-                <span>本轮单词</span>
+                <span>本轮进度</span>
                 <strong id="ieltsDetailProgressText">0 / 500</strong>
               </div>
               <div class="progress-track">
@@ -2231,33 +2600,64 @@
         <div class="modal-body">
           <div class="modal-section">
             <div class="modal-section-title">体重</div>
-            <div class="form-grid">
-              <div class="field">
-                <label for="targetWeightInput">目标体重（kg）</label>
-                <input id="targetWeightInput" type="number" min="20" max="300" step="0.1" />
+            <div class="picker-grid">
+              <div class="wheel-field">
+                <label>目标体重</label>
+                <div class="wheel-shell" aria-label="选择目标体重">
+                  <div class="wheel-focus" aria-hidden="true"></div>
+                  <div class="dual-wheel-layout">
+                    <div class="wheel-column" id="targetWeightWholeWheel" role="listbox" aria-label="目标体重整数"></div>
+                    <div class="wheel-dot">.</div>
+                    <div class="wheel-column" id="targetWeightDecimalWheel" role="listbox" aria-label="目标体重小数"></div>
+                    <div class="wheel-unit">kg</div>
+                  </div>
+                </div>
+                <input id="targetWeightInput" type="hidden" value="55.00" />
               </div>
-              <div class="field">
-                <label for="todayWeightInput">今日体重（kg）</label>
-                <input id="todayWeightInput" type="number" min="20" max="300" step="0.1" placeholder="例如 58.4" />
+
+              <div class="wheel-field">
+                <label>今日体重</label>
+                <div class="wheel-shell" aria-label="选择今日体重">
+                  <div class="wheel-focus" aria-hidden="true"></div>
+                  <div class="dual-wheel-layout">
+                    <div class="wheel-column" id="todayWeightWholeWheel" role="listbox" aria-label="今日体重整数"></div>
+                    <div class="wheel-dot">.</div>
+                    <div class="wheel-column" id="todayWeightDecimalWheel" role="listbox" aria-label="今日体重小数"></div>
+                    <div class="wheel-unit">kg</div>
+                  </div>
+                </div>
+                <input id="todayWeightInput" type="hidden" value="55.00" />
               </div>
             </div>
           </div>
 
           <div class="modal-section">
             <div class="modal-section-title">今天完成的健康选择</div>
-            <div class="choice-list">
+            <div class="choice-grid">
               <div class="choice">
                 <input id="noLateSnack" type="checkbox" />
-                <label for="noLateSnack"><span class="choice-mark">✓</span><span>今天没有吃宵夜</span></label>
+                <label for="noLateSnack"><span class="choice-content"><span class="choice-mark">✓</span><span class="choice-title">无宵夜</span></span><span class="choice-emoji">🍟</span></label>
               </div>
               <div class="choice">
                 <input id="noMilkTea" type="checkbox" />
-                <label for="noMilkTea"><span class="choice-mark">✓</span><span>今天没有喝奶茶</span></label>
+                <label for="noMilkTea"><span class="choice-content"><span class="choice-mark">✓</span><span class="choice-title">无奶茶</span></span><span class="choice-emoji">🧋</span></label>
               </div>
               <div class="choice">
                 <input id="eightyFull" type="checkbox" />
-                <label for="eightyFull"><span class="choice-mark">✓</span><span>今天每顿饭保持八分饱</span></label>
+                <label for="eightyFull"><span class="choice-content"><span class="choice-mark">✓</span><span class="choice-title">八分饱</span></span><span class="choice-emoji">🍚</span></label>
               </div>
+              <div class="choice">
+                <input id="exerciseDone" type="checkbox" />
+                <label for="exerciseDone"><span class="choice-content"><span class="choice-mark">✓</span><span class="choice-title">运动</span></span><span class="choice-emoji">🏋️</span></label>
+              </div>
+            </div>
+
+            <div class="draft-summary health-score">
+              <div>
+                <div class="draft-summary-title">今日健康积分</div>
+                <div class="draft-formula">每完成一个选择增加1分</div>
+              </div>
+              <strong id="healthTodayScore">0 / 4</strong>
             </div>
           </div>
 
@@ -2322,6 +2722,14 @@
 
       <div class="modal-body">
         <div class="modal-section">
+          <div class="weekend-banner" id="weekendStatusBanner" hidden>
+            <div class="weekend-banner-icon">☾</div>
+            <div>
+              <strong>周末放松日</strong>
+              <span>今晚不打卡不会中断连续记录，也不会增加天数；主动打卡仍可增加1天。</span>
+            </div>
+          </div>
+
           <div class="sleep-status">
             <strong id="sleepModalStreak">0 days</strong>
             <span id="sleepWindowText">打卡开放时间为每天20:00至次日00:59。</span>
@@ -2351,7 +2759,7 @@
         <div class="modal-section">
           <div class="modal-section-title">规则</div>
           <div class="empty-state" style="padding:0">
-            打卡时间以设置中的开放与截止时间为准。跨午夜的打卡会自动归入前一晚；错过截止时间后不支持补签，已经获得的里程积分不会被取消。
+            普通夜晚需在20:00至次日00:59完成打卡。周五和周六晚上为放松日：未打卡不会中断记录，也不会增加累计天数；主动打卡则正常增加1天。跨午夜的打卡归入前一晚，其他日期不支持补签。
           </div>
         </div>
 
@@ -2421,7 +2829,7 @@
               </div>
               <div class="field">
                 <label for="settingsTargetWeight">目标体重（kg）</label>
-                <input id="settingsTargetWeight" type="number" min="20" max="300" step="0.1" />
+                <input id="settingsTargetWeight" type="number" min="40" max="60" step="0.01" />
               </div>
             </div>
           </div>
@@ -2437,7 +2845,6 @@
                   <option value="weight,sleep,ielts">体重 · 早睡 · 雅思</option>
                 </select>
               </div>
-
               <div class="field">
                 <label for="colorStyleInput">界面强调色</label>
                 <select id="colorStyleInput">
@@ -2445,7 +2852,6 @@
                   <option value="mono">黑白</option>
                 </select>
               </div>
-
               <div class="field">
                 <label for="showRewardInput">积分概览</label>
                 <select id="showRewardInput">
@@ -2453,7 +2859,6 @@
                   <option value="hide">不在首页显示</option>
                 </select>
               </div>
-
               <div class="field">
                 <label for="showHistoryInput">里程记录</label>
                 <select id="showHistoryInput">
@@ -2467,7 +2872,24 @@
           <div class="modal-section">
             <div class="modal-section-title">固定规则</div>
             <div class="transfer-note">
-              本网站专属使用者固定为罗思维，神秘礼品提供者固定为董纪君。早睡打卡时间固定为每天20:00至次日00:59，凌晨1:00后不再允许补签。
+              使用者固定为罗思维，神秘礼品提供者固定为董纪君。早睡打卡时间固定为每天20:00至次日00:59；周五、周六晚上未打卡不会中断连续记录。
+            </div>
+          </div>
+
+          <div class="modal-section">
+            <div class="modal-section-title">最近备份</div>
+            <div class="backup-panel">
+              <div class="backup-grid">
+                <div class="backup-stat">
+                  <span>上次导出</span>
+                  <strong id="lastBackupText">从未备份</strong>
+                </div>
+                <div class="backup-stat">
+                  <span>已有记录</span>
+                  <strong id="recordedDaysText">0天</strong>
+                </div>
+              </div>
+              <div class="backup-advice" id="backupAdviceText">建议首次记录后导出一份备份。</div>
             </div>
           </div>
 
@@ -2507,7 +2929,7 @@
       "use strict";
 
       const STORAGE_KEY = "three_luosiwei_final_v1";
-      const APP_VERSION = 1;
+      const APP_VERSION = 2;
 
       const defaultState = {
         version: APP_VERSION,
@@ -2521,7 +2943,8 @@
           cardOrder: "ielts,weight,sleep",
           colorStyle: "color",
           showRewardSummary: true,
-          showHistory: true
+          showHistory: true,
+          lastBackupAt: null
         },
         daily: {},
         sleepCheckins: {},
@@ -2644,48 +3067,73 @@
         })[char]);
       }
 
-      function ensureDaily(key = todayKey()) {
-        if (!state.daily[key]) {
-          state.daily[key] = {
-            words: { newWords: 0, reviewWords: 0, note: "" },
-            weight: {
-              value: "",
-              noLateSnack: false,
-              noMilkTea: false,
-              eightyFull: false
-            }
-          };
-        }
+      const IELTS_SKILLS = [
+        { key: "listening", label: "听力" },
+        { key: "reading", label: "阅读" },
+        { key: "writing", label: "写作" },
+        { key: "speaking", label: "口语" }
+      ];
 
+      const HEALTH_CHOICES = [
+        { key: "noLateSnack", label: "无宵夜" },
+        { key: "noMilkTea", label: "无奶茶" },
+        { key: "eightyFull", label: "八分饱" },
+        { key: "exerciseDone", label: "运动" }
+      ];
+
+      function ensureDaily(key = todayKey()) {
+        if (!state.daily[key]) state.daily[key] = {};
+
+        const existingWords = state.daily[key].words || {};
+        const existingSkills = existingWords.skills || {};
         state.daily[key].words = {
           newWords: 0,
           reviewWords: 0,
           note: "",
-          ...(state.daily[key].words || {})
+          ...existingWords,
+          skills: {
+            listening: false,
+            reading: false,
+            writing: false,
+            speaking: false,
+            ...existingSkills
+          }
         };
 
+        const existingWeight = state.daily[key].weight || {};
         state.daily[key].weight = {
           value: "",
           noLateSnack: false,
           noMilkTea: false,
           eightyFull: false,
-          ...(state.daily[key].weight || {})
+          exerciseDone: false,
+          ...existingWeight
         };
 
         return state.daily[key];
       }
 
+      function selectedIeltsSkills(words) {
+        const skills = words?.skills || {};
+        return IELTS_SKILLS.filter(item => Boolean(skills[item.key]));
+      }
+
+      function effectiveWordsForEntry(entry) {
+        const words = entry?.words || {};
+        const actual = Math.max(0, Math.floor(safeNumber(words.newWords)));
+        return actual + selectedIeltsSkills(words).length * 20;
+      }
+
       function totalWords() {
         return Object.values(state.daily).reduce(
-          (sum, entry) => sum + Math.max(0, safeNumber(entry?.words?.newWords)),
+          (sum, entry) => sum + effectiveWordsForEntry(entry),
           0
         );
       }
 
       function healthPointsForEntry(entry) {
         const weight = entry?.weight || {};
-        return [weight.noLateSnack, weight.noMilkTea, weight.eightyFull]
-          .filter(Boolean).length;
+        return HEALTH_CHOICES.filter(item => Boolean(weight[item.key])).length;
       }
 
       function totalHealthPoints() {
@@ -2809,42 +3257,69 @@
         return latestConcludedNightKey(now);
       }
 
+      function isRelaxNightKey(key) {
+        if (!key) return false;
+        const day = dateFromKey(key).getDay();
+        return day === 5 || day === 6;
+      }
+
+      function tonightNightKey(now = new Date()) {
+        const current = now.getHours() * 60 + now.getMinutes();
+        const deadline = timeToMinutes(state.settings.sleepDeadline, "01:00");
+        if (current < deadline) {
+          const previous = new Date(now);
+          previous.setDate(previous.getDate() - 1);
+          return dateKey(previous);
+        }
+        return dateKey(now);
+      }
+
       function currentSleepRun(now = new Date()) {
         const reference = sleepReferenceKey(now);
-
-        if (!reference || !state.sleepCheckins[reference]) {
-          return { streak: 0, startKey: null, endKey: reference };
-        }
+        if (!reference) return { streak: 0, startKey: null, endKey: null };
 
         let streak = 0;
         let cursor = reference;
+        let startKey = null;
+        let endKey = null;
+        let guard = 0;
 
-        while (state.sleepCheckins[cursor]) {
-          streak += 1;
+        while (guard < 5000) {
+          if (state.sleepCheckins[cursor]) {
+            streak += 1;
+            if (!endKey) endKey = cursor;
+            startKey = cursor;
+          } else if (!isRelaxNightKey(cursor)) {
+            break;
+          }
+
           cursor = addDaysToKey(cursor, -1);
+          guard += 1;
         }
 
-        return {
-          streak,
-          startKey: addDaysToKey(reference, -(streak - 1)),
-          endKey: reference
-        };
+        return { streak, startKey, endKey: endKey || reference };
       }
 
       function bestSleepStreak() {
         const keys = Object.keys(state.sleepCheckins).sort();
         if (!keys.length) return 0;
 
-        let best = 1;
-        let current = 1;
+        let cursor = keys[0];
+        const end = keys[keys.length - 1];
+        let current = 0;
+        let best = 0;
+        let guard = 0;
 
-        for (let i = 1; i < keys.length; i += 1) {
-          if (dayDifference(keys[i - 1], keys[i]) === 1) {
+        while (cursor <= end && guard < 10000) {
+          if (state.sleepCheckins[cursor]) {
             current += 1;
             best = Math.max(best, current);
-          } else {
-            current = 1;
+          } else if (!isRelaxNightKey(cursor)) {
+            current = 0;
           }
+
+          cursor = addDaysToKey(cursor, 1);
+          guard += 1;
         }
 
         return best;
@@ -2852,11 +3327,11 @@
 
       function tonightDisplayStatus() {
         const windowInfo = getNightWindow();
-        if (windowInfo.canCheckIn) {
-          return state.sleepCheckins[windowInfo.nightKey] ? "Done" : "Open now";
-        }
-        const latestNight = latestConcludedNightKey();
-        return state.sleepCheckins[latestNight] ? "Completed" : "Open later";
+        const nightKey = windowInfo.canCheckIn ? windowInfo.nightKey : tonightNightKey();
+
+        if (windowInfo.canCheckIn && state.sleepCheckins[nightKey]) return "Done";
+        if (isRelaxNightKey(nightKey)) return "RELAX DAY";
+        return windowInfo.canCheckIn ? "Open now" : "Open later";
       }
 
       function createMilestone(source, level, title, detail, id) {
@@ -2884,7 +3359,7 @@
             "ielts",
             level,
             `${level * 500} Words`,
-            `累计记住了${level * 500}个新单词。`,
+            `累计完成了${level * 500}个雅思学习进度（含专项折算）。`,
             `ielts-${level}`
           );
 
@@ -2903,7 +3378,7 @@
             "health",
             level,
             `${level * 50} Healthy Choices`,
-            `累计完成了${level * 50}次更好的饮食选择。`,
+            `累计完成了${level * 50}次健康选择。`,
             `health-${level}`
           );
 
@@ -3128,6 +3603,143 @@
         }
       }
 
+      const wheelRegistry = new Map();
+      const WHEEL_ROW_HEIGHT = 46;
+
+      function buildWheel(id, min, max, formatter, onChange) {
+        const element = $(id);
+        const values = [];
+        for (let value = min; value <= max; value += 1) values.push(value);
+
+        element.innerHTML = values.map(value => `
+          <div class="wheel-option" role="option" data-value="${value}">${formatter(value)}</div>
+        `).join("");
+
+        const registry = { element, min, max, formatter, onChange, value: min, timer: null };
+        wheelRegistry.set(id, registry);
+
+        const commit = () => {
+          const index = clamp(Math.round(element.scrollTop / WHEEL_ROW_HEIGHT), 0, values.length - 1);
+          const value = values[index];
+          registry.value = value;
+          element.querySelectorAll(".wheel-option").forEach((option, optionIndex) => {
+            const selected = optionIndex === index;
+            option.classList.toggle("selected", selected);
+            option.setAttribute("aria-selected", selected ? "true" : "false");
+          });
+          if (typeof onChange === "function") onChange(value);
+        };
+
+        element.addEventListener("scroll", () => {
+          window.clearTimeout(registry.timer);
+          registry.timer = window.setTimeout(commit, 70);
+        }, { passive: true });
+
+        element.addEventListener("click", event => {
+          const option = event.target.closest(".wheel-option");
+          if (!option) return;
+          setWheelValue(id, safeNumber(option.dataset.value), true);
+        });
+
+        commit();
+      }
+
+      function setWheelValue(id, requestedValue, smooth = false) {
+        const registry = wheelRegistry.get(id);
+        if (!registry) return;
+        const value = clamp(Math.round(safeNumber(requestedValue, registry.min)), registry.min, registry.max);
+        const index = value - registry.min;
+        registry.value = value;
+        registry.element.scrollTo({
+          top: index * WHEEL_ROW_HEIGHT,
+          behavior: smooth ? "smooth" : "auto"
+        });
+
+        registry.element.querySelectorAll(".wheel-option").forEach((option, optionIndex) => {
+          const selected = optionIndex === index;
+          option.classList.toggle("selected", selected);
+          option.setAttribute("aria-selected", selected ? "true" : "false");
+        });
+        if (typeof registry.onChange === "function") registry.onChange(value);
+
+        requestAnimationFrame(() => {
+          if (Math.abs(registry.element.scrollTop - index * WHEEL_ROW_HEIGHT) > 1) {
+            registry.element.scrollTop = index * WHEEL_ROW_HEIGHT;
+          }
+        });
+      }
+
+      function wheelValue(id) {
+        return wheelRegistry.get(id)?.value ?? 0;
+      }
+
+      function weightFromWheels(prefix) {
+        return clamp(
+          wheelValue(`${prefix}WeightWholeWheel`) + wheelValue(`${prefix}WeightDecimalWheel`) / 100,
+          40,
+          60
+        );
+      }
+
+      function updateWeightHidden(prefix, inputId) {
+        $(inputId).value = weightFromWheels(prefix).toFixed(2);
+      }
+
+      function setWeightWheels(prefix, value) {
+        let numeric = clamp(safeNumber(value, 55), 40, 60);
+        let whole = Math.floor(numeric);
+        let decimal = Math.round((numeric - whole) * 100);
+        if (decimal >= 100) {
+          whole += 1;
+          decimal = 0;
+        }
+        whole = clamp(whole, 40, 60);
+        if (whole === 60) decimal = 0;
+        setWheelValue(`${prefix}WeightWholeWheel`, whole);
+        setWheelValue(`${prefix}WeightDecimalWheel`, decimal);
+        updateWeightHidden(prefix, `${prefix}WeightInput`);
+      }
+
+      function renderIeltsDraftSummary() {
+        if (!$('ieltsDraftTotal')) return;
+        const actual = clamp(Math.floor(safeNumber($("todayNewWords").value)), 0, 200);
+        const selectedCount = ["skillListening", "skillReading", "skillWriting", "skillSpeaking"]
+          .filter(id => $(id).checked).length;
+        const bonus = selectedCount * 20;
+        $("ieltsDraftActual").textContent = actual;
+        $("ieltsDraftSkill").textContent = bonus;
+        $("ieltsDraftTotal").textContent = actual + bonus;
+      }
+
+      function renderWeightDraftSummary() {
+        if (!$('healthTodayScore')) return;
+        const score = ["noLateSnack", "noMilkTea", "eightyFull", "exerciseDone"]
+          .filter(id => $(id).checked).length;
+        $("healthTodayScore").textContent = `${score} / 4`;
+      }
+
+      function initializeWheelPickers() {
+        buildWheel("wordWheelColumn", 0, 200, value => String(value), value => {
+          $("todayNewWords").value = value;
+          renderIeltsDraftSummary();
+        });
+
+        ["target", "today"].forEach(prefix => {
+          buildWheel(`${prefix}WeightWholeWheel`, 40, 60, value => String(value), value => {
+            if (value === 60 && wheelValue(`${prefix}WeightDecimalWheel`) > 0) {
+              setWheelValue(`${prefix}WeightDecimalWheel`, 0);
+            }
+            updateWeightHidden(prefix, `${prefix}WeightInput`);
+          });
+          buildWheel(`${prefix}WeightDecimalWheel`, 0, 99, value => String(value).padStart(2, "0"), () => {
+            if (wheelValue(`${prefix}WeightWholeWheel`) === 60 && wheelValue(`${prefix}WeightDecimalWheel`) > 0) {
+              setWheelValue(`${prefix}WeightDecimalWheel`, 0);
+            }
+            updateWeightHidden(prefix, `${prefix}WeightInput`);
+          });
+        });
+      }
+
       function renderHeaderAndRewards() {
         const user = state.settings.userName || "罗思维";
         const author = state.settings.authorName || "董纪君";
@@ -3166,49 +3778,45 @@
       function renderIeltsCard() {
         const countdown = getExamCountdown();
         const today = ensureDaily();
+        const todayEffective = effectiveWordsForEntry(today);
         const total = totalWords();
         const progress = currentRound(total, 500);
-        const remaining = remainingToNext(total, 500);
 
         $("ieltsPrimary").firstChild.nodeValue = countdown.primary;
         $("ieltsPrimaryLabel").textContent = countdown.label;
-        $("todayWords").textContent = `${safeNumber(today.words.newWords)} words`;
+        $("todayWords").textContent = `${todayEffective} words`;
         $("totalWords").textContent = `${total.toLocaleString()} words`;
         $("wordProgressText").textContent = `${progress} / 500`;
         $("wordProgressFill").style.width = `${progress / 500 * 100}%`;
-        $("wordProgressNote").textContent = `${remaining} words remaining`;
       }
 
       function renderWeightCard() {
         const first = firstWeight();
         const latest = latestWeight();
-        const target = safeNumber(state.settings.targetWeight, 55);
+        const target = clamp(safeNumber(state.settings.targetWeight, 55), 40, 60);
         const points = totalHealthPoints();
         const progress = currentRound(points, 50);
-        const remaining = remainingToNext(points, 50);
 
         if (latest) {
-          $("weightPrimary").firstChild.nodeValue = latest.value.toFixed(1);
+          $("weightPrimary").firstChild.nodeValue = latest.value.toFixed(2);
           $("weightPrimaryLabel").textContent = `kg · ${formatShortDate(latest.date)}`;
         } else {
           $("weightPrimary").firstChild.nodeValue = "—";
           $("weightPrimaryLabel").textContent = "Today";
         }
 
-        $("targetWeightCard").textContent = `${target.toFixed(1)} kg`;
+        $("targetWeightCard").textContent = `${target.toFixed(2)} kg`;
 
         if (first && latest) {
           const diff = latest.value - first.value;
           const sign = diff > 0 ? "+" : diff < 0 ? "−" : "";
-          $("weightChangeCard").textContent = `${sign}${Math.abs(diff).toFixed(1)} kg`;
+          $("weightChangeCard").textContent = `${sign}${Math.abs(diff).toFixed(2)} kg`;
         } else {
           $("weightChangeCard").textContent = "—";
         }
 
         $("healthProgressText").textContent = `${progress} / 50`;
         $("healthProgressFill").style.width = `${progress / 50 * 100}%`;
-        $("healthProgressNote").textContent = `${remaining} choices remaining`;
-
         drawWeightSparkline();
       }
 
@@ -3216,7 +3824,6 @@
         const run = currentSleepRun();
         const best = bestSleepStreak();
         const progress = run.streak % 14;
-        const remaining = progress === 0 && run.streak > 0 ? 14 : 14 - progress;
 
         $("sleepPrimary").firstChild.nodeValue = String(run.streak);
         $("sleepPrimaryLabel").textContent = "Current streak";
@@ -3224,18 +3831,22 @@
         $("bestSleepStreak").textContent = `${best} days`;
         $("sleepProgressText").textContent = `${progress} / 14`;
         $("sleepProgressFill").style.width = `${progress / 14 * 100}%`;
-        $("sleepProgressNote").textContent = `${remaining} nights remaining`;
       }
 
       function renderIeltsDetail() {
         const today = ensureDaily();
         const total = totalWords();
         const progress = currentRound(total, 500);
+        const actual = clamp(Math.floor(safeNumber(today.words.newWords)), 0, 200);
 
         $("examDateInput").value = state.settings.examDate || "";
-        $("todayNewWords").value = safeNumber(today.words.newWords) || "";
-        $("todayReviewWords").value = safeNumber(today.words.reviewWords) || "";
-        $("wordNote").value = today.words.note || "";
+        setWheelValue("wordWheelColumn", actual);
+        $("todayNewWords").value = actual;
+        $("skillListening").checked = Boolean(today.words.skills.listening);
+        $("skillReading").checked = Boolean(today.words.skills.reading);
+        $("skillWriting").checked = Boolean(today.words.skills.writing);
+        $("skillSpeaking").checked = Boolean(today.words.skills.speaking);
+        renderIeltsDraftSummary();
 
         $("ieltsTotalDetail").textContent = `${total.toLocaleString()}词`;
         $("ieltsMilestonesDetail").textContent = `${milestonesFor("ielts").length}次`;
@@ -3246,37 +3857,37 @@
         const rows = Object.keys(state.daily)
           .sort()
           .reverse()
-          .filter(key => {
-            const words = state.daily[key]?.words;
-            return safeNumber(words?.newWords) > 0 ||
-              safeNumber(words?.reviewWords) > 0 ||
-              Boolean(words?.note);
-          })
+          .filter(key => effectiveWordsForEntry(state.daily[key]) > 0)
           .slice(0, 12)
           .map(key => {
-            const words = state.daily[key].words;
-            const noteParts = [];
-            if (safeNumber(words.reviewWords) > 0) noteParts.push(`复习 ${safeNumber(words.reviewWords)}`);
-            if (words.note) noteParts.push(escapeHtml(words.note));
+            const words = state.daily[key].words || {};
+            const actualWords = Math.max(0, Math.floor(safeNumber(words.newWords)));
+            const skillLabels = selectedIeltsSkills(words).map(item => item.label);
+            const bonus = skillLabels.length * 20;
+            const totalForDay = actualWords + bonus;
+            const details = [];
+            if (actualWords > 0) details.push(`新增${actualWords}词`);
+            if (skillLabels.length) details.push(skillLabels.join(" · "));
+            if (bonus > 0) details.push(`专项折算${bonus}词`);
 
             return `
               <div class="history-row">
                 <div class="date">${escapeHtml(formatShortDate(dateFromKey(key)))}</div>
-                <div class="note">${noteParts.join(" · ") || "新增单词记录"}</div>
-                <div class="value">+${safeNumber(words.newWords)}</div>
+                <div class="note">${escapeHtml(details.join(" · ") || "雅思学习")}</div>
+                <div class="value">+${totalForDay}</div>
               </div>
             `;
           });
 
         $("ieltsHistory").innerHTML = rows.length
           ? rows.join("")
-          : `<div class="empty-state">还没有单词记录。</div>`;
+          : `<div class="empty-state">还没有雅思学习记录。</div>`;
       }
 
       function weightGoalProgress() {
         const first = firstWeight();
         const latest = latestWeight();
-        const target = safeNumber(state.settings.targetWeight, 55);
+        const target = clamp(safeNumber(state.settings.targetWeight, 55), 40, 60);
 
         if (!first || !latest || first.value === target) {
           return { ratio: 0, text: "尚无足够数据" };
@@ -3299,30 +3910,32 @@
         const today = ensureDaily();
         const first = firstWeight();
         const latest = latestWeight();
-        const target = safeNumber(state.settings.targetWeight, 55);
+        const target = clamp(safeNumber(state.settings.targetWeight, 55), 40, 60);
         const points = totalHealthPoints();
         const progress = currentRound(points, 50);
         const goal = weightGoalProgress();
+        const todayValue = safeNumber(today.weight.value, NaN);
+        const pickerValue = Number.isFinite(todayValue) && todayValue >= 40 && todayValue <= 60
+          ? todayValue
+          : latest?.value || target;
 
-        $("targetWeightInput").value = target;
-        $("todayWeightInput").value =
-          Number.isFinite(safeNumber(today.weight.value, NaN)) && safeNumber(today.weight.value) > 0
-            ? safeNumber(today.weight.value)
-            : "";
+        setWeightWheels("target", target);
+        setWeightWheels("today", pickerValue);
 
         $("noLateSnack").checked = Boolean(today.weight.noLateSnack);
         $("noMilkTea").checked = Boolean(today.weight.noMilkTea);
         $("eightyFull").checked = Boolean(today.weight.eightyFull);
+        $("exerciseDone").checked = Boolean(today.weight.exerciseDone);
+        renderWeightDraftSummary();
 
-        $("startWeightDetail").textContent = first ? `${first.value.toFixed(1)} kg` : "—";
-        $("currentWeightDetail").textContent = latest ? `${latest.value.toFixed(1)} kg` : "—";
+        $("startWeightDetail").textContent = first ? `${first.value.toFixed(2)} kg` : "—";
+        $("currentWeightDetail").textContent = latest ? `${latest.value.toFixed(2)} kg` : "—";
         $("weightRemainingDetail").textContent = latest
-          ? `${Math.abs(latest.value - target).toFixed(1)} kg`
+          ? `${Math.abs(latest.value - target).toFixed(2)} kg`
           : "—";
 
         $("weightGoalText").textContent = goal.text;
         $("weightGoalFill").style.width = `${goal.ratio * 100}%`;
-
         $("healthDetailProgressText").textContent = `${progress} / 50`;
         $("healthDetailProgressFill").style.width = `${progress / 50 * 100}%`;
 
@@ -3331,20 +3944,22 @@
           .reverse()
           .filter(key => {
             const entry = state.daily[key];
-            return safeNumber(entry?.weight?.value, NaN) > 0 ||
-              healthPointsForEntry(entry) > 0;
+            return safeNumber(entry?.weight?.value, NaN) > 0 || healthPointsForEntry(entry) > 0;
           })
           .slice(0, 14)
           .map(key => {
             const entry = state.daily[key];
             const value = safeNumber(entry.weight.value, NaN);
-            const pointsForDay = healthPointsForEntry(entry);
+            const choices = HEALTH_CHOICES
+              .filter(item => Boolean(entry.weight?.[item.key]))
+              .map(item => item.label);
+            const note = choices.length ? `${choices.join(" · ")} · ${choices.length}分` : "未勾选健康项目";
 
             return `
               <div class="history-row">
                 <div class="date">${escapeHtml(formatShortDate(dateFromKey(key)))}</div>
-                <div class="note">${pointsForDay}个健康选择</div>
-                <div class="value">${Number.isFinite(value) && value > 0 ? `${value.toFixed(1)} kg` : "—"}</div>
+                <div class="note">${escapeHtml(note)}</div>
+                <div class="value">${Number.isFinite(value) && value > 0 ? `${value.toFixed(2)} kg` : "—"}</div>
               </div>
             `;
           });
@@ -3361,19 +3976,29 @@
         const best = bestSleepStreak();
         const progress = run.streak % 14;
         const windowInfo = getNightWindow();
+        const nightKey = windowInfo.canCheckIn ? windowInfo.nightKey : tonightNightKey();
+        const relaxNight = isRelaxNightKey(nightKey);
         const checked = windowInfo.canCheckIn && Boolean(state.sleepCheckins[windowInfo.nightKey]);
 
+        $("weekendStatusBanner").hidden = !relaxNight;
         $("sleepModalStreak").textContent = `${run.streak} ${run.streak === 1 ? "day" : "days"}`;
-        $("sleepWindowText").textContent = checked
-          ? `本晚已于${new Intl.DateTimeFormat("zh-CN", { hour: "2-digit", minute: "2-digit" }).format(new Date(state.sleepCheckins[windowInfo.nightKey]))}完成打卡。`
-          : windowInfo.message;
+
+        if (checked) {
+          $("sleepWindowText").textContent = `本晚已于${new Intl.DateTimeFormat("zh-CN", { hour: "2-digit", minute: "2-digit" }).format(new Date(state.sleepCheckins[windowInfo.nightKey]))}完成打卡。`;
+        } else if (relaxNight) {
+          $("sleepWindowText").textContent = windowInfo.canCheckIn
+            ? "今晚可以放松，也可以主动打卡增加1天。"
+            : "今晚是周末放松日，20:00后可以自愿打卡。";
+        } else {
+          $("sleepWindowText").textContent = windowInfo.message;
+        }
 
         $("sleepCheckinButton").disabled = !windowInfo.canCheckIn || checked;
         $("sleepCheckinButton").textContent = checked
           ? "今晚已完成"
           : windowInfo.canCheckIn
-            ? "完成今晚打卡"
-            : "当前不在打卡时间";
+            ? relaxNight ? "今晚仍要打卡" : "完成今晚打卡"
+            : relaxNight ? "今晚可放松" : "当前不在打卡时间";
 
         $("sleepCurrentDetail").textContent = `${run.streak}天`;
         $("sleepBestDetail").textContent = `${best}天`;
@@ -3383,28 +4008,27 @@
 
         const reference = sleepReferenceKey();
         const recentKeys = [];
-        for (let i = 0; i < 14; i += 1) {
-          recentKeys.push(addDaysToKey(reference, -i));
-        }
+        for (let i = 0; i < 14; i += 1) recentKeys.push(addDaysToKey(reference, -i));
 
         $("sleepHistory").innerHTML = recentKeys.map(key => {
           const checkedAt = state.sleepCheckins[key];
+          const relax = isRelaxNightKey(key);
           let value = "Missed";
           let note = "未完成";
 
           if (checkedAt) {
-            value = new Intl.DateTimeFormat("zh-CN", {
-              hour: "2-digit",
-              minute: "2-digit"
-            }).format(new Date(checkedAt));
-            note = "Success";
+            value = new Intl.DateTimeFormat("zh-CN", { hour: "2-digit", minute: "2-digit" }).format(new Date(checkedAt));
+            note = relax ? "Relax · 已打卡" : "Success";
+          } else if (relax) {
+            value = "Relax";
+            note = "周末放松 · 不影响连续";
           }
 
           return `
             <div class="history-row">
               <div class="date">${escapeHtml(formatShortDate(dateFromKey(key)))}</div>
-              <div class="note">${note}</div>
-              <div class="value">${value}</div>
+              <div class="note">${escapeHtml(note)}</div>
+              <div class="value">${escapeHtml(value)}</div>
             </div>
           `;
         }).join("");
@@ -3498,13 +4122,44 @@
         `;
       }
 
+      function recordedDayCount() {
+        const keys = new Set();
+        Object.entries(state.daily).forEach(([key, entry]) => {
+          const hasWords = effectiveWordsForEntry(entry) > 0;
+          const hasWeight = safeNumber(entry?.weight?.value, NaN) > 0;
+          const hasHealth = healthPointsForEntry(entry) > 0;
+          if (hasWords || hasWeight || hasHealth) keys.add(key);
+        });
+        Object.keys(state.sleepCheckins).forEach(key => keys.add(key));
+        return keys.size;
+      }
+
+      function renderBackupStatus() {
+        const last = state.settings.lastBackupAt ? new Date(state.settings.lastBackupAt) : null;
+        $("lastBackupText").textContent = last && !Number.isNaN(last.getTime())
+          ? formatDateTime(last.toISOString())
+          : "从未备份";
+        $("recordedDaysText").textContent = `${recordedDayCount()}天`;
+
+        if (!last || Number.isNaN(last.getTime())) {
+          $("backupAdviceText").textContent = "建议首次记录后导出一份备份，避免更换设备或清理浏览器后丢失数据。";
+          return;
+        }
+
+        const days = Math.floor((Date.now() - last.getTime()) / 86400000);
+        $("backupAdviceText").textContent = days >= 30
+          ? `距离上次备份已${days}天，建议现在重新导出。`
+          : `备份状态良好，最近一次导出距今${Math.max(0, days)}天。`;
+      }
+
       function prefillSettings() {
         $("settingsExamDate").value = state.settings.examDate || "";
-        $("settingsTargetWeight").value = safeNumber(state.settings.targetWeight, 55);
+        $("settingsTargetWeight").value = clamp(safeNumber(state.settings.targetWeight, 55), 40, 60).toFixed(2);
         $("cardOrderInput").value = state.settings.cardOrder || "ielts,weight,sleep";
         $("colorStyleInput").value = state.settings.colorStyle || "color";
         $("showRewardInput").value = state.settings.showRewardSummary === false ? "hide" : "show";
         $("showHistoryInput").value = state.settings.showHistory === false ? "hide" : "show";
+        renderBackupStatus();
       }
 
       function prefillModal(id) {
@@ -3519,9 +4174,15 @@
         event.preventDefault();
 
         const entry = ensureDaily();
-        entry.words.newWords = Math.max(0, Math.floor(safeNumber($("todayNewWords").value)));
-        entry.words.reviewWords = Math.max(0, Math.floor(safeNumber($("todayReviewWords").value)));
-        entry.words.note = $("wordNote").value.trim();
+        entry.words.newWords = clamp(Math.floor(safeNumber($("todayNewWords").value)), 0, 200);
+        entry.words.reviewWords = 0;
+        entry.words.note = "";
+        entry.words.skills = {
+          listening: $("skillListening").checked,
+          reading: $("skillReading").checked,
+          writing: $("skillWriting").checked,
+          speaking: $("skillSpeaking").checked
+        };
         state.settings.examDate = $("examDateInput").value;
 
         saveState();
@@ -3529,11 +4190,10 @@
         saveState();
         closeModal($("ieltsModal"));
         renderAll();
-        showToast("单词记录已保存");
+        showToast("雅思学习记录已保存");
 
         if (added.length) {
           added.forEach(item => enqueuePopup({ type: "milestone", item }));
-
           const balanceBeforeAdded = milestoneBalance() - added.length;
           if (Math.floor(milestoneBalance() / 2) > Math.floor(balanceBeforeAdded / 2)) {
             enqueuePopup({ type: "gift-unlocked" });
@@ -3545,13 +4205,12 @@
         event.preventDefault();
 
         const entry = ensureDaily();
-        const weightValue = $("todayWeightInput").value;
-
-        entry.weight.value = weightValue === "" ? "" : safeNumber(weightValue);
+        entry.weight.value = Number(clamp(safeNumber($("todayWeightInput").value, 55), 40, 60).toFixed(2));
         entry.weight.noLateSnack = $("noLateSnack").checked;
         entry.weight.noMilkTea = $("noMilkTea").checked;
         entry.weight.eightyFull = $("eightyFull").checked;
-        state.settings.targetWeight = safeNumber($("targetWeightInput").value, 55);
+        entry.weight.exerciseDone = $("exerciseDone").checked;
+        state.settings.targetWeight = Number(clamp(safeNumber($("targetWeightInput").value, 55), 40, 60).toFixed(2));
 
         saveState();
         const added = syncHealthMilestones();
@@ -3562,7 +4221,6 @@
 
         if (added.length) {
           added.forEach(item => enqueuePopup({ type: "milestone", item }));
-
           const balanceBeforeAdded = milestoneBalance() - added.length;
           if (Math.floor(milestoneBalance() / 2) > Math.floor(balanceBeforeAdded / 2)) {
             enqueuePopup({ type: "gift-unlocked" });
@@ -3610,7 +4268,7 @@
         state.settings.sleepStart = "20:00";
         state.settings.sleepDeadline = "01:00";
         state.settings.examDate = $("settingsExamDate").value;
-        state.settings.targetWeight = safeNumber($("settingsTargetWeight").value, 55);
+        state.settings.targetWeight = Number(clamp(safeNumber($("settingsTargetWeight").value, 55), 40, 60).toFixed(2));
         state.settings.cardOrder = $("cardOrderInput").value || "ielts,weight,sleep";
         state.settings.colorStyle = $("colorStyleInput").value || "color";
         state.settings.showRewardSummary = $("showRewardInput").value !== "hide";
@@ -3668,7 +4326,10 @@
               text: `${state.settings.userName || "罗思维"}的Three打卡数据`,
               files: [file]
             });
-            showToast("数据已打开分享面板");
+            state.settings.lastBackupAt = new Date().toISOString();
+            saveState();
+            if ($("settingsModal").classList.contains("open")) renderBackupStatus();
+            showToast("数据已成功分享");
             return;
           }
         } catch (error) {
@@ -3684,6 +4345,9 @@
         link.click();
         link.remove();
         window.setTimeout(() => URL.revokeObjectURL(url), 1000);
+        state.settings.lastBackupAt = new Date().toISOString();
+        saveState();
+        if ($("settingsModal").classList.contains("open")) renderBackupStatus();
         showToast("JSON备份已导出");
       }
 
@@ -3877,11 +4541,11 @@
         ctx.font = "11px -apple-system, BlinkMacSystemFont, sans-serif";
 
         ctx.textAlign = "left";
-        ctx.fillText(`${points[0].value.toFixed(1)} kg`, padding.left, 12);
+        ctx.fillText(`${points[0].value.toFixed(2)} kg`, padding.left, 12);
         ctx.fillText(formatShortDate(points[0].date), padding.left, height - 8);
 
         ctx.textAlign = "right";
-        ctx.fillText(`${points[points.length - 1].value.toFixed(1)} kg`, width - padding.right, 12);
+        ctx.fillText(`${points[points.length - 1].value.toFixed(2)} kg`, width - padding.right, 12);
         ctx.fillText(formatShortDate(points[points.length - 1].date), width - padding.right, height - 8);
       }
 
@@ -3955,6 +4619,11 @@
         $("settingsForm").addEventListener("submit", submitSettings);
         $("sleepCheckinButton").addEventListener("click", performSleepCheckin);
 
+        ["skillListening", "skillReading", "skillWriting", "skillSpeaking"]
+          .forEach(id => $(id).addEventListener("change", renderIeltsDraftSummary));
+        ["noLateSnack", "noMilkTea", "eightyFull", "exerciseDone"]
+          .forEach(id => $(id).addEventListener("change", renderWeightDraftSummary));
+
         $("quickExport").addEventListener("click", exportData);
         $("exportData").addEventListener("click", exportData);
         $("importData").addEventListener("click", () => $("importFile").click());
@@ -3976,6 +4645,7 @@
       }
 
       function init() {
+        initializeWheelPickers();
         ensureDaily();
         syncAllMilestones(false);
         saveState();
